@@ -1,0 +1,23 @@
+App
+        SideTab
+                QuickInfo
+                SideMenu
+                        NewShift
+                        Staff
+                        Calender
+                        SearchBar
+        MainContent
+                CalenderPage
+                        Tools
+                                Undo
+                                Redo
+                        CalenderArea
+                                WeekView
+                                        DayForWeek
+                                        ShiftForWeek
+                                MonthView
+                                        DayForMonth
+                                        ShiftForMonth
+        Header
+                LogInArea
+                Title
