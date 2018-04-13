@@ -5,6 +5,8 @@ import Header from './Header/Header'
 import MainContent from './MainContent/MainContent'
 import SideTab from './SideTab/SideTab'
 
+import { Button } from 'reactstrap';
+
 
 class App extends Component {
   render() {

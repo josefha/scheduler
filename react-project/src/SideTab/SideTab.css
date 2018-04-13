@@ -1,8 +1,17 @@
 .SideTab {
     width: 20%;
-    height: 700px;
+    height: 730px;
     float: left;
-    background: #EEEEEE;
+    background: #FFF;
     float: left;
     border-right: 1px solid black;
+}
+
+#SideMenu{
+  height: 350px;
+}
+
+#QuickInfo{
+  padding-top: 30px;
+  border-top: 1px solid black;
 }
