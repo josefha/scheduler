@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-class CalanderPage extends Component {
+export default class CalanderPage extends Component {
   render() {
     return (
       <div>
+
+      CalenderArea
 
     </div>
     );
   }
 }
-
-
-export default CalanderPage;
