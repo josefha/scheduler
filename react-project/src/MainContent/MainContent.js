@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CalanderPage from './CalanderPage/CalanderPage'
+import CalenderPage from './CalenderPage/CalenderPage'
 
 
 class MainContent extends Component {
@@ -7,7 +7,7 @@ class MainContent extends Component {
     return (
     <div>
         <h2> MainContent </h2>
-        <CalanderPage/>
+        <CalenderPage/>
     </div>
     );
   }
