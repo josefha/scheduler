@@ -4,7 +4,7 @@ class CalanderPage extends Component {
   render() {
     return (
       <div>
-      asdasd
+
     </div>
     );
   }
