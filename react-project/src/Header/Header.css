@@ -1,0 +1,18 @@
+#header {
+    background-color: #5C9EAD;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid black;
+}
+
+#LogInArea {
+  width: 30%;
+  float: right;
+  height: 100%;
+}
+
+#Title {
+  width: 70%;
+  height: 100%;
+  float: left;
+}

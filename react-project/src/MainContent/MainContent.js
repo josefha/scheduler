@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import CalenderPage from './CalenderPage/CalenderPage'
+import './MainContent.css';
 
 
 class MainContent extends Component {
   render() {
     return (
-    <div>
-        <h2> MainContent </h2>
+    <div id='MainContent'>
         <CalenderPage/>
     </div>
     );

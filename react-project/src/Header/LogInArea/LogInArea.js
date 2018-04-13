@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class LoginArea extends Component {
   render() {
     return (
-    <div>LoginArea</div>
+    <div id="LogInArea">
+      LoginArea
+    </div>
     );
   }
 }

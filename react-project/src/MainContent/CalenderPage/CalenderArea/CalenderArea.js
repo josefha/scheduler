@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 export default class CalanderPage extends Component {
   render() {
     return (
-      <div>
-
-      CalenderArea
-
-    </div>
+      <div id="CalenderArea">
+        CalenderArea
+      </div>
     );
   }
 }

@@ -1,0 +1,19 @@
+#MainContent {
+  background-color: #FFFFFF;
+  height: 700px;
+  width: 80%;
+  margin:0 -1px 0 0;
+  float: right;
+}
+
+#Tools {
+  width: 30%;
+  height: 700px;
+  float: right;
+}
+
+#CalenderArea {
+  width: 70%;
+  height: 700px;
+  float: left;
+}

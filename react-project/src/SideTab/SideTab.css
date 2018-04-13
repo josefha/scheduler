@@ -1,4 +1,8 @@
 .SideTab {
-    background: steelblue;
+    width: 20%;
+    height: 700px;
     float: left;
+    background: #EEEEEE;
+    float: left;
+    border-right: 1px solid black;
 }
