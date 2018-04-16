@@ -1,21 +1,22 @@
 #MainContent {
   background-color: #FFFFFF;
-  height: 700px;
-  width: 80%;
-  margin:0 -1px 0 0;
-  float: right;
 }
 
 #Tools {
   padding-top: 30px;
-  width: 30%;
-  height: 700px;
-  float: right;
 }
 
 #CalenderArea {
+  background-color: red;
   padding-top: 30px;
-  width: 70%;
-  height: 700px;
-  float: left;
+}
+
+.nopadding{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
 }
