@@ -1,6 +1,7 @@
 .CalenderDay{
   margin: -1px;
-  border: solid black 1px;
+  border-top: solid black 1px;
+
   height:500px;
   width: 14.2857%;
 }
@@ -8,4 +9,22 @@
 .show-grid{
   justify-content: center;
 
+}
+
+.Hours{
+  height: 30px;
+  border-top: solid 1px LightGray;
+  text-align: left;
+}
+
+
+
+#start{
+  background-color: LightGreen ;
+}
+#middle{
+  background-color: LightGreen ;
+}
+#end{
+  background-color: LightGreen ;
 }

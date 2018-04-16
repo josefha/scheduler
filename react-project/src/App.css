@@ -33,7 +33,8 @@
 }
 
 .show-grid.row{
-  border: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
   margin:0px;
   padding: 0px;
 }

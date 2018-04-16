@@ -1,5 +1,4 @@
 .SideTab {
-    background: #FF0;
     bordert: 1px solid black;
 }
 
@@ -8,6 +7,5 @@
 }
 
 #QuickInfo{
-  border: 1px solid black;
-
+  height: 400px;
 }
