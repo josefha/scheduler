@@ -1,0 +1,11 @@
+.CalenderDay{
+  margin: -1px;
+  border: solid black 1px;
+  height:500px;
+  width: 14.2857%;
+}
+
+.show-grid{
+  justify-content: center;
+
+}

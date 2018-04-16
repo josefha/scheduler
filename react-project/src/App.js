@@ -16,10 +16,10 @@ class App extends Component {
 
         <Grid  className="container-fluid">
           <Row className="show-grid no-gutter">
-            <Col xs={12} lg={3}>
+            <Col xs={12} lg={2}>
               <SideTab/>
             </Col>
-            <Col xs={12} lg={9}>
+            <Col xs={12} lg={10}>
               <MainContent/>
             </Col>
           </Row>
