@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title/Title'
-import LoginArea from './LogInArea/LoginArea'
+import LogInArea from './LogInArea/LoginArea'
 import './Header.css'
 
 class Header extends Component {
@@ -8,7 +8,7 @@ class Header extends Component {
     return (
     <div id="header">
       <Title/>
-      <LoginArea/>
+      <LogInArea/>
     </div>
     );
   }

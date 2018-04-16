@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 
-class LoginArea extends Component {
+
+class LogInArea extends Component {
  render() {
    return (
    <div id="LoginArea">
@@ -11,4 +12,4 @@ class LoginArea extends Component {
  }
 }
 
-export default LoginArea;
+export default LogInArea;
