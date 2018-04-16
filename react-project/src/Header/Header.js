@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title/Title'
-import LoginArea from './LoginArea/LoginArea'
+import LoginArea from './LogInArea/LoginArea'
 import './Header.css'
 
 class Header extends Component {
