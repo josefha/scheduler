@@ -35,7 +35,7 @@ export default class CalenderDay extends Component {
     }
 
     return(
-    <div className="CalenderDay">
+    <div className="CalenderDay" id={this.props.name}>
         <div className = "WeekTitle">
         {this.props.name}
         </div>
