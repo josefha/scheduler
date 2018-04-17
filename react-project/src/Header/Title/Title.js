@@ -5,7 +5,7 @@ export default class Title extends Component {
   render() {
     return (
     <div id="Title">
-      <h3 > BEST SCHEDULING SYSTEM IN THE SWEDEN </h3>
+      <h3 > BEST SCHEDULING SYSTEM IN SWEDEN </h3>
     </div>
     );
   }

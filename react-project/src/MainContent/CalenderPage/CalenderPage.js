@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 
 import './CalenderPage.css';
 
