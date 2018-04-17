@@ -1,6 +1,8 @@
 .CalenderDay{
   margin: -1px;
-  border-top: solid black 1px;
+  border-top: solid LightGray 1px;
+  border-left: solid LightGray 1px;
+  border-right: solid LightGray 1px;
 
   height:500px;
   width: 14.2857%;
@@ -8,7 +10,6 @@
 
 .show-grid{
   justify-content: center;
-
 }
 
 .Hours{
@@ -16,6 +17,10 @@
   border-top: solid 1px LightGray;
 }
 
+.Tooldiv {
+  padding-top: 10px;
+  height: 60px;
+}
 
 
 #start{

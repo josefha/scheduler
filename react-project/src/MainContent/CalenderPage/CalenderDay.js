@@ -13,7 +13,6 @@ export default class CalenderDay extends Component {
     let start = -1;
     let shiftLen = -1;
     if (shifts.length > 0) {
-      console.log("found shift")
       start = shifts[1]
       shiftLen = shifts[2]-start
     }

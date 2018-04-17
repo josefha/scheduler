@@ -6,7 +6,7 @@ class LogInArea extends Component {
  render() {
    return (
    <div id="LoginArea">
-     <Button bsStyle="primary"> Profile </Button>
+     <Button> Profile </Button>
    </div>
    );
  }
