@@ -1,18 +1,29 @@
 .CalenderDay{
-  border: solid LightGray 1px;
+  border-right: solid LightGray 1px;
+  border-top: solid LightGray 1px;
+  border-bottom: solid LightGray 1px;
   height:620px;
   width: 14.2857%;
 }
 
+#Monday{
+  border-left: solid LightGray 1px;
+}
+
 .WeekTitle{
+  padding-top: 2px;
   height: 20px;
 }
 
 .show-grid{
+
   justify-content: center;
 }
 
 .Hours{
+  padding-top: 3px;
+  padding-left: 5px;
+  text-align: left;
   height: 25px;
   border-top: solid 1px LightGray;
 }
@@ -22,13 +33,14 @@
   height: 35px;
 }
 
-
 #start{
   background-color: LightGreen ;
 }
 #middle{
+  border-top: solid 0px;
   background-color: LightGreen ;
 }
 #end{
+  border-top: 0px;
   background-color: LightGreen ;
 }

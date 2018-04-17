@@ -11,7 +11,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {view: "CalenderPage"}
+    this.state = {view: "calenderPage"}
   }
 
   handleClick = (click) => {

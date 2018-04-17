@@ -74,7 +74,7 @@ class CalenderPage extends Component {
         <Tools />
         </Row>
         <Row className="show-grid">
-          <CalenderDay name="Monday" shifts={listOfShift[MONDAY]}/>
+          <CalenderDay name="Monday" shifts={listOfShift[MONDAY]} className="leftBorder"/>
           <CalenderDay name="Tuesday" shifts={listOfShift[TUESDAY]}/>
           <CalenderDay name="Wednesday" shifts={listOfShift[WEDNESDAY]}/>
           <CalenderDay name="Thursday" shifts={listOfShift[THURSDAY]}/>

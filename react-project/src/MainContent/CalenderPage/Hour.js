@@ -17,11 +17,11 @@ export default class Hour extends Component {
     let timetext = this.displaytime(this.props.time)
 
     if(this.props.type === "middle") {
-      element = <div className= "Hours" id="middle">middle</div>;
+      element = <div className= "Hours" id="middle"></div>;
     }else if (this.props.type === "start") {
-      element = <div className= "Hours" id="start"> start: {timetext}</div>;
+      element = <div className= "Hours" id="start"> {timetext} </div>;
     }else if (this.props.type === "end") {
-      element = <div className= "Hours" id="end">end</div>;
+      element = <div className= "Hours" id="end"></div>;
     }else{
       element = <div className= "Hours"></div>;
     }
