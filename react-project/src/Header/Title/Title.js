@@ -5,7 +5,7 @@ export default class Title extends Component {
   render() {
     return (
     <div id="Title">
-        <img id = "logo" src={ require('../../Images/logowhale-small.png')} />
+      <h3 > BEST SCHEDULING SYSTEM IN THE SWEDEN </h3>
     </div>
     );
   }

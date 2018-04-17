@@ -1,11 +1,11 @@
 .CalenderDay{
-  margin: -1px;
-  border-top: solid LightGray 1px;
-  border-left: solid LightGray 1px;
-  border-right: solid LightGray 1px;
-
-  height:500px;
+  border: solid LightGray 1px;
+  height:620px;
   width: 14.2857%;
+}
+
+.WeekTitle{
+  height: 20px;
 }
 
 .show-grid{
@@ -13,13 +13,13 @@
 }
 
 .Hours{
-  height: 30px;
+  height: 25px;
   border-top: solid 1px LightGray;
 }
 
 .Tooldiv {
-  padding-top: 10px;
-  height: 60px;
+  padding-top: 5px;
+  height: 35px;
 }
 
 

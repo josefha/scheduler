@@ -36,7 +36,9 @@ export default class CalenderDay extends Component {
 
     return(
     <div className="CalenderDay">
+        <div className = "WeekTitle">
         {this.props.name}
+        </div>
         {hours}
     </div>
 
