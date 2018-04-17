@@ -1,13 +1,31 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap';
+import AddShift from './AddShift'
 import '../CalenderPage.css';
+import './Tools.css';
 
 export default class CalanderPage extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      showPopUp : false
+    }
+  }
+
+  togglePopUp = () => {
+    this.setState({
+      showPopUp : !this.state.showPopUp
+    });
+    console.log("in togglePopUp");
+  }
+
+
   render() {
     return (
       <div className="Tooldiv">
         <ButtonGroup>
-          <Button>New Shift</Button>
+          <Button onClick={this.togglePopUp}>New Shift</Button>
           <Button>Redo</Button>
           <Button>Undo</Button>
           <DropdownButton title="Staff" id="bg-nested-dropdown">
@@ -16,6 +34,11 @@ export default class CalanderPage extends Component {
             <MenuItem eventKey="2">Alex</MenuItem>
           </DropdownButton>
         </ButtonGroup>
+
+        {this.state.showPopUp ?
+          <AddShift event={this.togglePopUp}/>
+          :null
+        }
       </div>
     );
   }

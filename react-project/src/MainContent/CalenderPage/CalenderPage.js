@@ -49,15 +49,7 @@ class CalenderPage extends Component {
     })
 */
   }
-/*
-  componentWillMount() {
-      this.addShift([0,1,10]);
-  }
 
-  componentDidMount() {
-      this.addShift([3,5,10]);
-  }
-*/
 
   render() {
     let shifts = this.state.shifts;
@@ -71,7 +63,7 @@ class CalenderPage extends Component {
     return (
       <Grid  className="container-fluid">
         <Row className="show-grid no-gutter">
-        <Tools />
+        <Tools/>
         </Row>
         <Row className="show-grid">
           <CalenderDay name="Monday" shifts={listOfShift[MONDAY]}/>

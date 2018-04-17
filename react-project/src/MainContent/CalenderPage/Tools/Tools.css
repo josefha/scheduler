@@ -1,0 +1,16 @@
+.AddShift{
+  height: 100px;
+  width: 100px;
+
+}
+
+.innerPopUp{
+  background-color: white;
+  border: solid black 1px;
+  height: 50%;
+  width: 50%;
+  margin-top: 50px;
+  
+  position:absolute;
+  top: 123px;
+}
