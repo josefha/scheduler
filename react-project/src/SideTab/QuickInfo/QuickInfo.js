@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class QuickInfo extends Component {
     render() {
         return (
-            <div id="QuickInfo">
+            <div className="QuickInfo">
               QuickInfo
             </div>
         );

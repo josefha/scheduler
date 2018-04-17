@@ -3,7 +3,7 @@ import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
 import {Grid, Row, Col} from 'react-bootstrap';
 
-import '../MainContent.css';
+import './CalenderPage.css';
 
 
   const MONDAY = 0;
