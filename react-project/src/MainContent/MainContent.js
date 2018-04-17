@@ -4,6 +4,8 @@ import './MainContent.css';
 
 
 class MainContent extends Component {
+
+
   render() {
     return (
     <div id='MainContent'>

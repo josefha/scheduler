@@ -21,7 +21,7 @@ class CalenderPage extends Component {
   }
 
   componentWillMount() {
-      this.addShift([1,3,12]);
+      this.addShift([0,1,10]);
   }
 
   componentDidMount() {
@@ -41,7 +41,7 @@ class CalenderPage extends Component {
     return (
       <Grid  className="container-fluid">
         <Row className="show-grid no-gutter">
-        <Tools/>
+        <Tools />
         </Row>
         <Row className="show-grid">
           <CalenderDay name="Monday" shifts={listOfShift[0]}/>
@@ -51,7 +51,6 @@ class CalenderPage extends Component {
           <CalenderDay name="Friday" shifts={listOfShift[4]}/>
           <CalenderDay name="Saturday" shifts={listOfShift[5]}/>
           <CalenderDay name="Sunday" shifts={listOfShift[6]}/>
-
         </Row>
     </Grid>
     );

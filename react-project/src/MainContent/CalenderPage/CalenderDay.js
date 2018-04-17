@@ -13,7 +13,6 @@ export default class CalenderDay extends Component {
     let start = -1;
     let shiftLen = -1;
     if (shifts.length > 0) {
-      console.log("found shift")
       start = shifts[1]
       shiftLen = shifts[2]-start
     }
@@ -22,16 +21,16 @@ export default class CalenderDay extends Component {
 
     for (var i = 0; i < 24; i++) {
         if(i === start){
-            hours[i] = <Hour type="start" key={i.toString()} time={time}/>
+            hours[i] = <Hour type="start" key={i.toString()} time={i.toString()}/>
             i +=1;
             for (var m = 0; m < shiftLen-2; m++){
-              hours[i] = <Hour type="middle" key={i.toString()} time={time}/>
+              hours[i] = <Hour type="middle" key={i.toString()} time={i.toString()}/>
               i +=1;
             }
-          hours[i] = <Hour type="end" key={i.toString()} time={time}/>
+          hours[i] = <Hour type="end" key={i.toString()} time={i.toString()}/>
         }
       else{
-        hours[i] = <Hour type="empty" key={i.toString()} time={time}/>
+        hours[i] = <Hour type="empty" key={i.toString()} time={i.toString()}/>
       }
     }
 
