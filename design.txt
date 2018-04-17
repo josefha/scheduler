@@ -11,13 +11,19 @@ App
                         Tools
                                 Undo
                                 Redo
-                        CalenderArea
-                                WeekView
-                                        DayForWeek
-                                        ShiftForWeek
-                                MonthView
-                                        DayForMonth
-                                        ShiftForMonth
+			WeekView
+                                CalenderDay
+					Hour                                      
+                        MonthView *
+                                DayForMonth
+					Hour
+                                        
         Header
                 LogInArea
                 Title
+
+
+* Not yet implemented. 
+
+
+
