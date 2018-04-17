@@ -12,9 +12,9 @@ export default class CalenderDay extends Component {
     let hours = []
     let start = -1;
     let shiftLen = -1;
-    if (shifts.length > 0) {
-      start = shifts[1]
-      shiftLen = shifts[2]-start
+    if (shifts != null) {
+      start = shifts.startTime
+      shiftLen = shifts.endTime-start
     }
 
     let time = ""
