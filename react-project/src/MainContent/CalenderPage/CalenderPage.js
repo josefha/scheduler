@@ -5,33 +5,37 @@ import {Grid, Row, Col} from 'react-bootstrap';
 
 import './CalenderPage.css';
 
+  const SUNDAY = 0;
+  const MONDAY = 1;
+  const TUESDAY = 2;
+  const WEDNESDAY = 3;
+  const THURSDAY = 4;
+  const FRIDAY = 5;
+  const SATURDAY = 6;
 
-  const MONDAY = 0;
-  const TUESDAY = 1;
-  const WEDNESDAY = 2;
-  const THURSDAY = 3;
-  const FRIDAY = 4;
-  const SATURDAY = 5;
-  const SUNDAY = 6;
 
 class CalenderPage extends Component {
 
   constructor(props){
     super(props);
-    this.state = { shifts: [
+    this.state = {
+      shifts: [
       {
+        "date" : "",
         "day" : MONDAY,
         "startTime" : 1,
         "endTime" : 6,
         "disc": "Alex is working"
     },
     {
+        "date": "",
         "day" : FRIDAY,
         "startTime" : 15,
         "endTime" : 23,
         "disc": "Go China"
     },
     {
+      "date" : "",
       "day" : TUESDAY,
       "startTime" : 16,
       "endTime" : 20,
@@ -45,12 +49,15 @@ class CalenderPage extends Component {
     var obj = this.state.shifts;
       this.setState({
           shifts : obj.concat({
-                "day": shift.day,
+                "date" : shift.date,
+                "day": shift.getDay(),
                 "startTime" : shift.startTime,
                 "endTime" : shift.endTime,
                 "disc" : shift.disc
               })
       });
+
+      console.log(this.state.shifts);
     }
 
 
