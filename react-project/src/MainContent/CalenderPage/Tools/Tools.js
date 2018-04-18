@@ -17,7 +17,6 @@ export default class CalanderPage extends Component {
     this.setState({
       showPopUp : !this.state.showPopUp
     });
-    console.log("in togglePopUp");
   }
 
 
@@ -36,7 +35,11 @@ export default class CalanderPage extends Component {
         </ButtonGroup>
 
         {this.state.showPopUp ?
-          <AddShift event={this.togglePopUp}/>
+          <AddShift
+            event={this.togglePopUp}
+            addShift={this.props.addShift}
+            shifts={this.props.shifts}
+          />
           :null
         }
       </div>

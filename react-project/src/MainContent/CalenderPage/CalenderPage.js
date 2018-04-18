@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
-import {Grid, Row} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 
 import './CalenderPage.css';
 
@@ -16,42 +16,46 @@ import './CalenderPage.css';
 
 class CalenderPage extends Component {
 
-
-
   constructor(props){
     super(props);
-    //shifts structure [dayindex, starttime, endtime]
-    this.state = {shifts: [
+    this.state = { shifts: [
       {
         "day" : MONDAY,
         "startTime" : 1,
-        "endTime" : 6
+        "endTime" : 6,
+        "disc": "Alex is working"
     },
     {
         "day" : FRIDAY,
         "startTime" : 15,
-        "endTime" : 23
+        "endTime" : 23,
+        "disc": "Go China"
     },
     {
       "day" : TUESDAY,
       "startTime" : 16,
-      "endTime" : 20
+      "endTime" : 20,
+      "disc" : "Love Elfsborg"
     }
   ]};
 
   }
 
   addShift(shift){
-    /*shifts.map(ashift =>{
+    var obj = this.state.shifts;
       this.setState({
-      //  shifts: this.state.shifts.concat([shift])
+          shifts : obj.concat({
+                "day": shift.day,
+                "startTime" : shift.startTime,
+                "endTime" : shift.endTime,
+                "disc" : shift.disc
+              })
       });
-    })
-*/
-  }
+    }
 
 
   render() {
+
     let shifts = this.state.shifts;
     //listOfShift includes the different shift for each day
     let listOfShift = [[],[],[],[],[],[],[]];
@@ -63,10 +67,10 @@ class CalenderPage extends Component {
     return (
       <Grid  className="container-fluid">
         <Row className="show-grid no-gutter">
-        <Tools/>
+        <Tools addShift={this.addShift} shifts={this.state.shifts}/>
         </Row>
         <Row className="show-grid">
-          <CalenderDay name="Monday" shifts={listOfShift[MONDAY]} className="leftBorder"/>
+          <CalenderDay name="Monday" shifts={listOfShift[MONDAY]}/>
           <CalenderDay name="Tuesday" shifts={listOfShift[TUESDAY]}/>
           <CalenderDay name="Wednesday" shifts={listOfShift[WEDNESDAY]}/>
           <CalenderDay name="Thursday" shifts={listOfShift[THURSDAY]}/>

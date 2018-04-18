@@ -2,20 +2,20 @@ App
         SideTab
                 QuickInfo
                 SideMenu
-                        NewShift
                         Staff
                         Calender
                         SearchBar
         MainContent
-                CalenderPage
+                CalenderPage 
                         Tools
+				NewShift
                                 Undo
                                 Redo
-			WeekView
+			WeekView *
                                 CalenderDay
 					Hour                                      
                         MonthView *
-                                DayForMonth
+                                DayForMonth *
 					Hour
                                         
         Header
