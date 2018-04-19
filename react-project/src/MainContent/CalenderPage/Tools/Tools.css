@@ -6,3 +6,29 @@
 #CloseBtn{
   background-color: lightgrey;
 }
+.Tooldiv{
+  width: 100%;
+}
+
+.menuDiv{
+  width: 70%;
+  float: left;
+}
+
+.titleDiv{
+  padding-left: 0px;
+  color: darkGreen;
+  font-size: 16px;
+  display:inline;
+  float: left;
+  width: 20%
+}
+
+.monthTitle{
+  float: left;
+}
+
+.yearTitle{
+  padding-left: 10px;
+  float:left;
+}
