@@ -27,7 +27,12 @@
   height: 25px;
   border-top: solid 1px LightGray;
 }
-
+.info{
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
 .Tooldiv {
   padding-top: 5px;
   height: 35px;

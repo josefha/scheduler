@@ -3,6 +3,7 @@ import './CalenderPage.css'
 
 export default class Hour extends Component {
 
+
   displaytime(hour){
     if(hour.length > 1){
       return hour+":00"
@@ -12,12 +13,15 @@ export default class Hour extends Component {
 
   }
 
+
   render(){
     let element;
     let timetext = this.displaytime(this.props.time)
 
     if(this.props.type === "middle") {
-      element = <div className= "Hours" id="middle"></div>;
+      element = <div className= "Hours" id="middle">
+
+      </div>;
     }else if (this.props.type === "start") {
       element = <div className= "Hours" id="start"> {timetext} </div>;
     }else if (this.props.type === "end") {

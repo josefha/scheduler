@@ -9,9 +9,11 @@
     "popper.js": "^1.14.3",
     "react": "^16.3.1",
     "react-bootstrap": "^0.32.1",
+    "react-bootstrap-time-picker": "^1.0.3",
     "react-day-picker": "^7.1.6",
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4",
+    "react-simple-popover": "^0.2.4",
     "reactstrap": "^5.0.0-beta.3"
   },
   "scripts": {

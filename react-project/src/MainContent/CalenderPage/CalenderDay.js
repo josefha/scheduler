@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import './CalenderPage.css';
 import Hour from './Hour';
+import Tools from './Tools/Tools';
+import Popover from 'react-simple-popover';
 
 export default class CalenderDay extends Component {
   constructor(props){
     super(props);
+      this.state={
+          showPopover : false
+      }
+
   }
+    togglePopover = () => {
+        this.setState({
+            showPopover : !this.state.showPopover
+        });
+    };
+    handleClose(e) {
+        this.setState({open: false});
+    }
+
 
   render(){
     let shifts = this.props.shifts
@@ -35,13 +50,26 @@ export default class CalenderDay extends Component {
     }
 
     return(
-    <div className="CalenderDay" id={this.props.name}>
+    <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.name}>
         <div className = "WeekTitle">
         {this.props.name}
         </div>
         {hours}
+            <Popover className="Info"
+                placement='left'
+                container={this}
+                target={this.refs.target}
+                show={this.state.showPopover}
+                onHide={this.handleClose.bind(this)} >
+               
+                {shifts.disc}
+            </Popover>
+
+
     </div>
 
   );
   }
 }
+
+
