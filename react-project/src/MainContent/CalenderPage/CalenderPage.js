@@ -51,21 +51,23 @@ class CalenderPage extends Component {
     }
   ]};
 
-  }
 
-  addShift(shift){
-    let obj = []
-      this.setState({
-          shifts : obj.concat({
+  }
+// Adds a shift to this.state.shifts
+  addShift = (shift) => {
+    let obj = this.state.shifts;
+    obj =  obj.concat({
                 "date" : shift.date,
                 "day": shift.date.getDay(),
                 "startTime" : shift.startTime,
                 "endTime" : shift.endTime,
                 "disc" : shift.disc
-              })
+              });
+    this.setState({
+          shifts : obj
       });
 
-      console.log(this.state.shifts);
+    console.log(this.state.shifts);
     }
 
   createTitles(){
