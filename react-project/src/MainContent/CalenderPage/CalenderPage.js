@@ -46,11 +46,11 @@ class CalenderPage extends Component {
   }
 
   addShift(shift){
-    var obj = this.state.shifts;
+    let obj = []
       this.setState({
           shifts : obj.concat({
                 "date" : shift.date,
-                "day": shift.getDay(),
+                "day": shift.date.getDay(),
                 "startTime" : shift.startTime,
                 "endTime" : shift.endTime,
                 "disc" : shift.disc
