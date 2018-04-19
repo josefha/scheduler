@@ -51,8 +51,12 @@ export default class AddShift extends Component {
   }
 
   handleTime = (e) =>{
-    console.log(e.target.name);
-
+    let obj = this.state.shift;
+    obj['startTime'] = e
+    this.setState({
+      shift : obj
+    })
+    console.log(this.state.shift);
   }
 
   render() {
@@ -75,8 +79,8 @@ export default class AddShift extends Component {
               </input>
               <p>Start Time</p>
               <TimePicker
-                name= "startTime"
-                value= "3600"
+                name="startTime"
+                value= {this.state.startTime}
                 format={24}
                 start="12:00"
                 end="23:59" step={15}
