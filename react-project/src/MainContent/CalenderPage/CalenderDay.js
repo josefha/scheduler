@@ -8,6 +8,20 @@ export default class CalenderDay extends Component {
   }
 
   render(){
+
+    let hoursElements = this.createHoursElements()
+
+    return(
+          <div className="CalenderDay" id={this.props.name}>
+              <div className = "WeekTitle">
+              {this.props.title}
+              </div>
+              {hoursElements}
+          </div>
+    );
+    }
+
+  createHoursElements() {
     let shifts = this.props.shifts
     let hours = []
     let start = -1;
@@ -33,15 +47,6 @@ export default class CalenderDay extends Component {
         hours[i] = <Hour type="empty" key={i.toString()} time={i.toString()}/>
       }
     }
-
-    return(
-    <div className="CalenderDay" id={this.props.name}>
-        <div className = "WeekTitle">
-        {this.props.name}
-        </div>
-        {hours}
-    </div>
-
-  );
+    return hours
   }
 }
