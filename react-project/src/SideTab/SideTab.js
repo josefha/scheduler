@@ -24,7 +24,6 @@ class SideTab extends Component {
           <Button>Settings</Button>
         </ButtonGroup>
         </div>
-        <QuickInfo/>
       </div>
     );
   }
