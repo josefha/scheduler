@@ -57,7 +57,6 @@ export default class CalenderDay extends Component {
       start = shifts.startTime / 3600;
       end = shifts.endTime / 3600
       middleLen = (end - start) - (start%1);
-      console.log("start time: " + start)
     }
 
     let time = ""
@@ -65,16 +64,16 @@ export default class CalenderDay extends Component {
     for (var i = 0; i < 24; i++) {
       // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16
         if(start > i && start < i+2 ){
-            hours[i] = <Hour type="start" key={i.toString()} time={start}/>
+            hours[i] = <Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>
             i +=1;
             for (var m = 0; m < middleLen-1; m++){
-              hours[i] = <Hour type="middle" key={i.toString()} time={start}/>
+              hours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
               i +=1;
             }
-          hours[i] = <Hour type="end" key={i.toString()} time={start}/>
+          hours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={end}/>
         }
       else{
-        hours[i] = <Hour type="empty" key={i.toString()} time={start}/>
+        hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
       }
     }
     return hours

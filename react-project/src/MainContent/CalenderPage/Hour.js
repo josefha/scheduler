@@ -16,7 +16,7 @@ export default class Hour extends Component {
 
   render(){
     let element;
-    // Notis: tog bort funktionskallet till displaytime pga den är utaderad. kan fixas
+    // Notis: tog bort funktionskallet till displaytime pga den är utdaterad. kan fixas
     let timetext = this.props.time
 
     if(this.props.type === "middle") {
@@ -24,16 +24,30 @@ export default class Hour extends Component {
 
       </div>;
     }else if (this.props.type === "start") {
-      let height = 3600 / this.props.time
-      const css = '.innerShiftDiv {height: 50%; background-color: lightGreen;} .offSet {height: 50%;} '
+      let height;
+      // Calculates the amount of seconds the start hour
+      let rest = this.props.time % 3600
+      if (rest == 0) {
+        height = 100;
+      }else{
+        // The height of the div in % which should be green
+        height = 100 -((rest/3600) * 100)
+      }
+
+      // Variables for distinguish the different part divs for each shift
+      let innerShiftDiv = "innerShiftDiv" + this.props.keyName;
+      let offSet = "offSet" + this.props.keyName;
+
+      // Css rules for each specific innerShiftDiv and offSet div
+      const css = "".concat('.',innerShiftDiv,'{height: ',height.toString(),'%; background-color: lightGreen;}', '.', offSet, '{height:',100-height.toString(),'%;}');
 
       element = <div className= "Hours" id="start" >
-        <div className="offSet" >
+        <div className={offSet} >
           <style>{css}</style>
 
 
         </div>
-        <div className="innerShiftDiv">
+        <div className={innerShiftDiv}>
           {timetext}
           <style>{css}</style>
 
@@ -41,7 +55,7 @@ export default class Hour extends Component {
 
       </div>
     }else if (this.props.type === "end") {
-      element = <div className= "Hours" id="end"></div>;
+      element = <div className= "Hours" id="end">{this.props.time}</div>;
     }else{
       element = <div className= "Hours"></div>;
     }
