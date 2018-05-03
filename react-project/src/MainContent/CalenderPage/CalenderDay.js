@@ -51,17 +51,20 @@ export default class CalenderDay extends Component {
     let hours = []
     let start = -1;
     let middleLen = -1;
-    let end = shifts.endTime / 3600
+    let end = -1;
+    // Calculates the start, end and middle hours in the different shifts
     if (shifts != null) {
       start = shifts.startTime / 3600;
+      end = shifts.endTime / 3600
       middleLen = (end - start) - (start%1);
-      console.log(start)
+      console.log("start time: " + start)
     }
 
     let time = ""
 
     for (var i = 0; i < 24; i++) {
-        if(start > i && start < i+1 ){
+      // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16
+        if(start > i && start < i+2 ){
             hours[i] = <Hour type="start" key={i.toString()} time={start}/>
             i +=1;
             for (var m = 0; m < middleLen-1; m++){

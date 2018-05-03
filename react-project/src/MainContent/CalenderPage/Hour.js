@@ -16,7 +16,8 @@ export default class Hour extends Component {
 
   render(){
     let element;
-    let timetext = this.displaytime(this.props.time)
+    // Notis: tog bort funktionskallet till displaytime pga den är utaderad. kan fixas
+    let timetext = this.props.time
 
     if(this.props.type === "middle") {
       element = <div className= "Hours" id="middle">

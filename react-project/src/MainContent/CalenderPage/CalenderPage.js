@@ -31,23 +31,23 @@ class CalenderPage extends Component {
       {
         "date" : "",
         "day" : MONDAY,
-        "startTime" : 1,
-        "endTime" : 6,
+        "startTime" : 5400,
+        "endTime" : 21600,
         "disc": "Alex is working"
     },
     {
         "date": "",
         "day" : FRIDAY,
-        "startTime" : 15,
-        "endTime" : 23,
+        "startTime" : 55800,
+        "endTime" : 82800,
         "disc": "Go China"
     },
     {
       "date" : "",
       "day" : TUESDAY,
-      "startTime" : 16,
-      "endTime" : 20,
-      "disc" : "Love Elfsborg"
+      "startTime" : 57600,
+      "endTime" : 72000,
+      "disc" : "Börjar hel, borde fungera"
     }
   ]};
 
@@ -67,7 +67,6 @@ class CalenderPage extends Component {
           shifts : obj
       });
 
-    console.log(this.state.shifts);
     }
 
   createTitles(){
