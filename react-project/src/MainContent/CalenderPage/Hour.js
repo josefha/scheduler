@@ -23,7 +23,22 @@ export default class Hour extends Component {
 
       </div>;
     }else if (this.props.type === "start") {
-      element = <div className= "Hours" id="start"> {timetext} </div>;
+      let height = 3600 / this.props.time
+      const css = '.innerShiftDiv {height: 50%; background-color: lightGreen;} .offSet {height: 50%;} '
+
+      element = <div className= "Hours" id="start" >
+        <div className="offSet" >
+          <style>{css}</style>
+
+
+        </div>
+        <div className="innerShiftDiv">
+          {timetext}
+          <style>{css}</style>
+
+        </div>
+
+      </div>
     }else if (this.props.type === "end") {
       element = <div className= "Hours" id="end"></div>;
     }else{

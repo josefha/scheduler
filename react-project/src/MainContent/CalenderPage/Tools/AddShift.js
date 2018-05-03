@@ -40,23 +40,27 @@ export default class AddShift extends Component {
     console.log(this.state.shift);
   }
 
+  // Handles the calendar
   handleDayClick = (day) =>{
     let shiftCopy = this.state.shift;
     shiftCopy['date'] = day;
     shiftCopy['day'] = day.getDay();
     this.setState({
       shift: shiftCopy
-
     })
   }
 
-  handleTime = (e) =>{
+  // Handles the time changes in the time picker
+  handleTime = (id) => (e) =>{
     let obj = this.state.shift;
-    obj['startTime'] = e
+    if(id=='startTime'){
+      obj[id] = parseInt(e)
+    }else{
+      obj[id] = parseInt(e);
+    }
     this.setState({
       shift : obj
     })
-    console.log(this.state.shift);
   }
 
   render() {
@@ -83,16 +87,22 @@ export default class AddShift extends Component {
                 value= {this.state.startTime}
                 format={24}
                 start="12:00"
-                end="23:59" step={15}
-                onChange={this.handleTime}
+                end="23:59"
+                step={15}
+                onChange={this.handleTime('startTime')}
                />
               <p>End Time</p>
               <TimePicker
+                name="endTime"
                 format={24}
                 start="12:00"
                 end="23:59"
-                step={15} />
-              <DayPicker onDayClick={this.handleDayClick} firstDayOfWeek={1}/>
+                step={15}
+                onChange={this.handleTime('endTime')} />
+              <DayPicker
+                onDayClick={this.handleDayClick}
+                firstDayOfWeek={1}
+              />
 
             </label>
           <input type="submit" value="submit" />

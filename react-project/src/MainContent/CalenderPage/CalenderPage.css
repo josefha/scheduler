@@ -21,8 +21,7 @@
 }
 
 .Hours{
-  padding-top: 3px;
-  padding-left: 5px;
+
   text-align: left;
   height: 25px;
   border-top: solid 1px LightGray;
@@ -39,7 +38,7 @@
 }
 
 #start{
-  background-color: LightGreen ;
+  
 }
 #middle{
   border-top: solid 0px;

@@ -49,26 +49,28 @@ export default class CalenderDay extends Component {
     let shifts = this.props.shifts
     let hours = []
     let start = -1;
-    let shiftLen = -1;
+    let middleLen = -1;
+    let end = shifts.endTime / 3600
     if (shifts != null) {
-      start = shifts.startTime
-      shiftLen = shifts.endTime-start
+      start = shifts.startTime / 3600;
+      middleLen = (end - start) - (start%1);
+      console.log(start)
     }
 
     let time = ""
 
     for (var i = 0; i < 24; i++) {
-        if(i === start){
-            hours[i] = <Hour type="start" key={i.toString()} time={i.toString()}/>
+        if(start > i && start < i+1 ){
+            hours[i] = <Hour type="start" key={i.toString()} time={start}/>
             i +=1;
-            for (var m = 0; m < shiftLen-2; m++){
-              hours[i] = <Hour type="middle" key={i.toString()} time={i.toString()}/>
+            for (var m = 0; m < middleLen-1; m++){
+              hours[i] = <Hour type="middle" key={i.toString()} time={start}/>
               i +=1;
             }
-          hours[i] = <Hour type="end" key={i.toString()} time={i.toString()}/>
+          hours[i] = <Hour type="end" key={i.toString()} time={start}/>
         }
       else{
-        hours[i] = <Hour type="empty" key={i.toString()} time={i.toString()}/>
+        hours[i] = <Hour type="empty" key={i.toString()} time={start}/>
       }
     }
     return hours
