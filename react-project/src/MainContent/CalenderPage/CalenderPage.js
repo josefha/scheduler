@@ -39,14 +39,14 @@ class CalenderPage extends Component {
         "date": "",
         "day" : FRIDAY,
         "startTime" : 55800,
-        "endTime" : 82800,
+        "endTime" : 83700,
         "disc": "Go China"
     },
     {
       "date" : "",
       "day" : TUESDAY,
       "startTime" : 57600,
-      "endTime" : 72000,
+      "endTime" : 73800,
       "disc" : "Börjar hel, borde fungera"
     }
   ]};

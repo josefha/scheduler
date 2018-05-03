@@ -70,7 +70,7 @@ export default class CalenderDay extends Component {
               hours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
               i +=1;
             }
-          hours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={end}/>
+          hours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
         }
       else{
         hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
