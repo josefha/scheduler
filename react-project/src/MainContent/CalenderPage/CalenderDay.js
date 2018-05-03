@@ -27,23 +27,24 @@ export default class CalenderDay extends Component {
     let hoursElements = this.createHoursElements()
 
     return(
-      <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.name}>
-          <div className = "WeekTitle">
-          {this.props.name}
-          </div>
-          {hoursElements}
-              <Popover className="Info"
-                  placement='left'
-                  container={this}
-                  target={this.refs.target}
-                  show={this.state.showPopover}
-                  onHide={this.handleClose.bind(this)} >
-
-                  {this.props.shifts.disc}
-              </Popover>
+    <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.title}>
+        <div className = "WeekTitle">
+        {this.props.title}
         </div>
-        );
-  }
+        {hoursElements}
+            <Popover className="Info"
+                placement='left'
+                container={this}
+                target={this.refs.target}
+                show={this.state.showPopover}
+                onHide={this.handleClose.bind(this)} >
+
+                {this.props.shifts.disc}
+            </Popover>
+            </div>
+
+          );
+    }
 
   createHoursElements() {
     let shifts = this.props.shifts
