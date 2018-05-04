@@ -12,8 +12,8 @@ export default class AddShift extends Component {
     this.state = {shift : {
       "date": "",
       "day" : 0,
-      "startTime" : 11,
-      "endTime" : 18,
+      "startTime" : 0,
+      "endTime" : 0,
       "disc" : ""
     }}
   }
@@ -84,9 +84,9 @@ export default class AddShift extends Component {
               <p>Start Time</p>
               <TimePicker
                 name="startTime"
-                value= {this.state.startTime}
+                value= {this.state.shift.startTime}
                 format={24}
-                start="12:00"
+                start="00:00"
                 end="23:59"
                 step={15}
                 onChange={this.handleTime('startTime')}
@@ -94,8 +94,9 @@ export default class AddShift extends Component {
               <p>End Time</p>
               <TimePicker
                 name="endTime"
+                value= {this.state.shift.endTime}
                 format={24}
-                start="12:00"
+                start="00:00"
                 end="23:59"
                 step={15}
                 onChange={this.handleTime('endTime')} />
