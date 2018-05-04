@@ -48,6 +48,8 @@ export default class AddShift extends Component {
     this.setState({
       shift: shiftCopy
     })
+
+    console.log(this.state.shift);
   }
 
   // Handles the time changes in the time picker
@@ -101,6 +103,7 @@ export default class AddShift extends Component {
                 step={15}
                 onChange={this.handleTime('endTime')} />
               <DayPicker
+                selectedDays ={this.state.shift.date}
                 onDayClick={this.handleDayClick}
                 firstDayOfWeek={1}
               />
