@@ -3,12 +3,16 @@ import './CalenderPage.css'
 
 export default class Hour extends Component {
 
-
+  // Displays the correct time
   displaytime(hour){
-    if(hour.length > 1){
-      return hour+":00"
+    if (hour % 3600 == 0) {
+      return hour/3600 + ":00"
+    }else if(hour % 3600 == 900 ){
+      return Math.floor(hour/3600) + ":15"
+    }else if(hour%3600 == 1800){
+      return Math.floor(hour/3600) + ":30"
     }else{
-      return "0"+hour+":00"
+      return Math.floor(hour/3600) + ":45"
     }
 
   }
@@ -17,9 +21,9 @@ export default class Hour extends Component {
     Input:
     The type of the shift, Eg. start or end
     Returns:
-    a string from styling the css
-    a string as a name for the inneShiftDiv
-    a string as a name for the offSet
+    a string for styling the css
+    a string as a name for the div called inneShiftDiv
+    a string as a name for the div called offSet
    */
   createStyleForShifts(type){
     let innerShiftDiv = "innerShiftDiv" + this.props.keyName;
@@ -47,7 +51,7 @@ export default class Hour extends Component {
       100-height.toString(),
       '%;}');
 
-      console.log(type + "  " + css )
+
       return [css,innerShiftDiv,offSet]
 
   }
@@ -57,7 +61,7 @@ export default class Hour extends Component {
     let element;
     let height;
     // Notis: tog bort funktionskallet till displaytime pga den är utdaterad. kan fixas
-    let timetext = this.props.time
+    let timetext = this.displaytime(this.props.time);
 
     if(this.props.type === "middle") {
       element = <div className= "Hours" id="middle">
@@ -77,7 +81,7 @@ export default class Hour extends Component {
 
         </div>
         <div className={innerShiftDiv}>
-          {timetext/3600}
+          {timetext}
           <style>{css}</style>
 
         </div>
@@ -92,7 +96,7 @@ export default class Hour extends Component {
 
 
         <div className={innerShiftDiv}>
-          {timetext/3600}
+          {timetext}
           <style>{css}</style>
 
         </div>
