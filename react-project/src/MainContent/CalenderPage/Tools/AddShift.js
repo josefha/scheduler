@@ -83,8 +83,18 @@ export default class AddShift extends Component {
                 value={this.state.shift.disc}
                 onChange={this.handleChange}>
               </input>
+
+              <DayPicker
+                className='dayPicker'
+                selectedDays ={this.state.shift.date}
+                onDayClick={this.handleDayClick}
+                firstDayOfWeek={1}
+
+              />
+
               <p>Start Time</p>
               <TimePicker
+                className='startPicker'
                 name="startTime"
                 value= {this.state.shift.startTime}
                 format={24}
@@ -95,6 +105,7 @@ export default class AddShift extends Component {
                />
               <p>End Time</p>
               <TimePicker
+                className='endPicker'
                 name="endTime"
                 value= {this.state.shift.endTime}
                 format={24}
@@ -102,11 +113,7 @@ export default class AddShift extends Component {
                 end="23:59"
                 step={15}
                 onChange={this.handleTime('endTime')} />
-              <DayPicker
-                selectedDays ={this.state.shift.date}
-                onDayClick={this.handleDayClick}
-                firstDayOfWeek={1}
-              />
+
 
             </label>
           <input type="submit" value="submit" />
