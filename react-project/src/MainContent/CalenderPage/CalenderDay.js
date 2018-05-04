@@ -4,6 +4,8 @@ import Hour from './Hour';
 import Tools from './Tools/Tools';
 import Popover from 'react-simple-popover';
 
+import format from 'date-fns/format'
+
 export default class CalenderDay extends Component {
   constructor(props){
     super(props);
@@ -29,7 +31,7 @@ export default class CalenderDay extends Component {
     return(
     <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.title}>
         <div className = "WeekTitle">
-        {this.props.title}
+        {format(this.props.date, 'dddd DD')}
         </div>
         {hoursElements}
             <Popover className="Info"
@@ -39,7 +41,6 @@ export default class CalenderDay extends Component {
                 show={this.state.showPopover}
                 onHide={this.handleClose.bind(this)} >
 
-                {this.props.shifts.disc}
             </Popover>
             </div>
 
@@ -47,13 +48,15 @@ export default class CalenderDay extends Component {
     }
 
   createHoursElements() {
-    let shifts = this.props.shifts
+    let shiftslist = this.props.shifts
     let hours = []
     let start = -1;
     let middleLen = -1;
     let end = -1;
+    let shifts;
     // Calculates the start, end and middle hours in the different shifts
-    if (shifts != null) {
+    if (shiftslist !== undefined && shiftslist.length != 0 ) {
+      shifts = shiftslist[0]
       start = shifts.startTime / 3600;
       end = shifts.endTime / 3600
       middleLen = (end - start) - (start%1);

@@ -9,6 +9,7 @@ import addWeeks from 'date-fns/add_weeks'
 import eachDay from 'date-fns/each_day'
 import addDays from 'date-fns/add_days'
 import startOfWeek from 'date-fns/start_of_week'
+import format from 'date-fns/format'
 
 import './CalenderPage.css';
 
@@ -22,76 +23,46 @@ import './CalenderPage.css';
 
 
 class CalenderPage extends Component {
-
   constructor(props){
     super(props);
     this.state = {
       mondayDateCurrentWeek: startOfWeek(new Date(),{weekStartsOn: 1}),
-      shifts: [
-      {
-        "date" : "",
-        "day" : MONDAY,
-        "startTime" : 5400,
-        "endTime" : 21600,
-        "disc": "Alex is working"
-    },
-    {
-        "date": "",
-        "day" : FRIDAY,
-        "startTime" : 55800,
-        "endTime" : 83700,
-        "disc": "Go China"
-    },
-    {
-      "date" : "",
-      "day" : TUESDAY,
-      "startTime" : 57600,
-      "endTime" : 73800,
-      "disc" : "Börjar hel, borde fungera"
-    }
-  ]};
-
-
+      shifts: {}
+    };
   }
+
 // Adds a shift to this.state.shifts
+// ADD support for many shift on same day?
   addShift = (shift) => {
-    let obj = this.state.shifts;
-    obj =  obj.concat({
+    let dict = this.state.shifts;
+    let key = format(shift.date,'DD/MM/YYYY')
+    console.log(key)
+    dict[key] = [{
                 "date" : shift.date,
                 "day": shift.date.getDay(),
                 "startTime" : shift.startTime,
                 "endTime" : shift.endTime,
                 "disc" : shift.disc
-              });
+              }];
     this.setState({
-          shifts : obj
+          shifts : dict
       });
 
     }
 
-  createTitles(){
-    let titles = ["","","","","","",""]
-    let date = this.state.mondayDateCurrentWeek
-    let days = eachDay(date, addWeeks(date,1))
-    titles[MONDAY] = "Monday " + days[0].getDate()
-    titles[TUESDAY] = "Tuesday "+ days[1].getDate()
-    titles[WEDNESDAY] = "Wednesday " + days[2].getDate()
-    titles[THURSDAY] = "Thursday " + days[3].getDate()
-    titles[FRIDAY] = "Friday " + days[4].getDate()
-    titles[SATURDAY] = "Saturday " + days[5].getDate()
-    titles[SUNDAY] = "Sunday " + days[6].getDate()
-    return titles
+  dateToKey(date){
+    return format(date,'DD/MM/YYYY')
   }
 
   render() {
-    let titles = this.createTitles()
     let shifts = this.state.shifts;
-    //listOfShift includes the different shift for each day
-    let listOfShift = [[],[],[],[],[],[],[]];
-    let i = 0;
-    shifts.map(shift =>{
-      listOfShift[shift.day] = (shift);
-    });
+    let monday = this.state.mondayDateCurrentWeek
+    let tuesday = addDays(monday, 1)
+    let wednesday = addDays(monday, 2)
+    let thursday = addDays(monday, 3)
+    let friday = addDays(monday, 4)
+    let saturday = addDays(monday, 5)
+    let sunday = addDays(monday, 6)
 
     return (
 
@@ -104,15 +75,16 @@ class CalenderPage extends Component {
                currentClickEvent={this.changeToCurrentWeek}
                currentdate={this.state.mondayDateCurrentWeek}
         />
+
         </Row>
         <Row className="show-grid">
-          <CalenderDay title={titles[MONDAY]}  shifts={listOfShift[MONDAY]}/>
-          <CalenderDay title={titles[TUESDAY]} shifts={listOfShift[TUESDAY]}/>
-          <CalenderDay title={titles[WEDNESDAY]} shifts={listOfShift[WEDNESDAY]}/>
-          <CalenderDay title={titles[THURSDAY]} shifts={listOfShift[THURSDAY]}/>
-          <CalenderDay title={titles[FRIDAY]} shifts={listOfShift[FRIDAY]}/>
-          <CalenderDay title={titles[SATURDAY]} shifts={listOfShift[SATURDAY]}/>
-          <CalenderDay title={titles[SUNDAY]} shifts={listOfShift[SUNDAY]}/>
+          <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]}/>
+          <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
+          <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
+          <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
+          <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]}/>
+          <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
+          <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
         </Row>
     </Grid>
     );

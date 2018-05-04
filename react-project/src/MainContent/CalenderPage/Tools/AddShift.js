@@ -41,10 +41,10 @@ export default class AddShift extends Component {
   }
 
   // Handles the calendar
-  handleDayClick = (day) =>{
+  handleDayClick = (date) =>{
     let shiftCopy = this.state.shift;
-    shiftCopy['date'] = day;
-    shiftCopy['day'] = day.getDay();
+    shiftCopy['date'] = date;
+    shiftCopy['day'] = date.getDay();
     this.setState({
       shift: shiftCopy
     })
