@@ -10,6 +10,7 @@ export default class AddShift extends Component {
   constructor(){
     super();
     this.state = {shift : {
+      "title": "",
       "date": "",
       "day" : 0,
       "startTime" : 0,
@@ -29,7 +30,8 @@ export default class AddShift extends Component {
     this.handleClick();
   }
 
-  //Handles the changes in the text input for Description
+
+  //Handles the changes in the text input for Description and title
   handleChange = (e)  =>{
     let shiftCopy = this.state.shift;
     shiftCopy[e.target.name] = e.target.value;
@@ -76,13 +78,21 @@ export default class AddShift extends Component {
           <form onSubmit={this.handleSubmit}>
 
             <label>
-              <p>Description:</p>
+              <p className="disc">Description:</p>
               <input
                 type="text"
                 name="disc"
                 value={this.state.shift.disc}
                 onChange={this.handleChange}>
               </input>
+
+              <p className="title">Title:</p>
+              <input
+                type="text"
+                name="title"
+                value={this.state.shift.title}
+                onChange={this.handleChange}>
+                </input>
 
               <DayPicker
                 className='dayPicker'

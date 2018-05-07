@@ -13,14 +13,6 @@ import format from 'date-fns/format'
 
 import './CalenderPage.css';
 
-  const SUNDAY = 0;
-  const MONDAY = 1;
-  const TUESDAY = 2;
-  const WEDNESDAY = 3;
-  const THURSDAY = 4;
-  const FRIDAY = 5;
-  const SATURDAY = 6;
-
 
 class CalenderPage extends Component {
   constructor(props){
@@ -32,12 +24,13 @@ class CalenderPage extends Component {
   }
 
 // Adds a shift to this.state.shifts
-// ADD support for many shift on same day?
+// Notis: ADD support for many shift on same day?
   addShift = (shift) => {
     let dict = this.state.shifts;
     let key = format(shift.date,'DD/MM/YYYY')
     console.log(key)
     dict[key] = [{
+                "title" : shift.title,
                 "date" : shift.date,
                 "day": shift.date.getDay(),
                 "startTime" : shift.startTime,
