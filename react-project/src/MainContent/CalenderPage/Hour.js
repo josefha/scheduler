@@ -56,11 +56,13 @@ export default class Hour extends Component {
 
   }
 
+  highOrderComponent(element){
+    return <div className="wrapper">{element}</div>
+  }
 
   render(){
     let element;
     let height;
-    // Notis: tog bort funktionskallet till displaytime pga den är utdaterad. kan fixas
     let timetext = this.displaytime(this.props.time);
 
     if(this.props.type === "middle") {
@@ -94,7 +96,6 @@ export default class Hour extends Component {
       let offSet = this.createStyleForShifts("end")[2]
       element = <div className= "Hours" id="end">
 
-
         <div className={innerShiftDiv}>
           {timetext}
           <style>{css}</style>
@@ -111,7 +112,7 @@ export default class Hour extends Component {
       element = <div className= "Hours"></div>;
     }
     return(
-      element
+      this.highOrderComponent(element)
   );
   }
 }
