@@ -69,17 +69,18 @@ export default class AddShift extends Component {
 
   render() {
     return (
-    <div className='AddShift'>
+    <div className="container-addShift">
       <Modal.Dialog bsSize="large">
         <Modal.Header>
           <Modal.Title> Title </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body id="modal-body">
           <form onSubmit={this.handleSubmit}>
 
             <label>
               <p className="disc">Description:</p>
               <input
+                className="discInput"
                 type="text"
                 name="disc"
                 value={this.state.shift.disc}
@@ -88,6 +89,7 @@ export default class AddShift extends Component {
 
               <p className="title">Title:</p>
               <input
+                className="titleInput"
                 type="text"
                 name="title"
                 value={this.state.shift.title}

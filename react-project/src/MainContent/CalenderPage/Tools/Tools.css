@@ -32,6 +32,23 @@
   padding-left: 10px;
   float:left;
 }
+
+
+.title{
+  float:left;
+}
+
+.container-addShift{
+  display: grid;
+
+}
+
+.modal-body{
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: auto auto;  
+}
+
 /*
 .dayPicker{
   background-color: red;
