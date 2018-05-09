@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./Login.css";
+import uuid  from 'uuid'
 import  { Redirect } from 'react-router-dom'
 import App from './App';
 
@@ -12,12 +14,42 @@ class Login extends Component {
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            users: []
+
         };
     }
 
+    componentWillMount(){
+        this.setState({
+            users:[
+                {
+                    id:uuid.v4(),
+                    email: 'iosif.kakalelis@gmail.com',
+                    password: '123456'
+                },
+
+                {
+                    id:uuid.v4(),
+                    email: 'alex@gmail.com',
+                    password: '123456'
+                },
+                {
+                    id:uuid.v4(),
+                    email: 'josef@gmail.com',
+                    password: '123456'
+
+                }
+            ]
+        })
+
+    }
     validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+        console.log(this.state.users);
+
+        let found = false;
+
+        return this.state.email.length > 0 && this.state.password.length > 0 ;
     }
 
     handleChange = event => {
