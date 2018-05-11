@@ -87,56 +87,66 @@ export default class AddShift extends Component {
               />
 
               <div id="title">
-                <p className="grid-item" id="titlePara">Title:</p>
-                <input
-                  className="titleInput"
-                  type="text"
-                  name="title"
-                  value={this.state.shift.title}
-                  onChange={this.handleChange}>
-                  </input>
+                <label for="titleInput">
+                  Title:
+                  <input
+                    className="titleInput"
+                    type="text"
+                    name="title"
+                    value={this.state.shift.title}
+                    onChange={this.handleChange}>
+                    </input>
+                </label>
               </div>
 
             <div id="startTime">
-              <p className="grid-item" >Start Time</p>
-              <TimePicker
-                className='startPicker'
-                name="startTime"
-                value= {this.state.shift.startTime}
-                format={24}
-                start="00:00"
-                end="23:59"
-                step={15}
-                onChange={this.handleTime('startTime')}
-               />
-            </div>
-
-            <div id="description">
-              <p className="grid-item" id="discPara">Description:</p>
-              <input
-                className= "grid-item"
-                id="discInput"
-                type="text"
-                name="disc"
-                value={this.state.shift.disc}
-                onChange={this.handleChange}>
-              </input>
-           </div>
-
-            <div id="endTime">
-              <p className="grid-item">End Time</p>
+              <label for="startPicker">
+                Start time:
                 <TimePicker
-                  className='endPicker'
-                  name="endTime"
-                  value= {this.state.shift.endTime}
+                  className='startPicker'
+                  name="startTime"
+                  value= {this.state.shift.startTime}
                   format={24}
                   start="00:00"
                   end="23:59"
                   step={15}
-                  onChange={this.handleTime('endTime')} />
-              </div>
-          <input type="submit" value="submit" className="grid-item" id="submitButton"/>
+                  onChange={this.handleTime('startTime')}
+                 />
+              </label>
+            </div>
 
+            <div id="description">
+              <label for="discInput">
+                Description:
+
+                <textarea
+                  className = "grid-item"
+                  id="discInput"
+                  name="disc"
+                  value={this.state.shift.disc}
+                  onChange={this.handleChange}
+                />
+              </label>
+           </div>
+
+            <div id="endTime">
+              <label for="endPicker">
+                End time:
+                  <TimePicker
+                    className='endPicker'
+                    name="endTime"
+                    value= {this.state.shift.endTime}
+                    format={24}
+                    start="00:00"
+                    end="23:59"
+                    step={15}
+                    onChange={this.handleTime('endTime')} />
+                </label>
+              </div>
+
+        <div id="submitDiv">
+          <input type="submit" value="submit" className="grid-item" id="submitButton"/>
+        </div>
         </form>
 
       </Modal.Body>

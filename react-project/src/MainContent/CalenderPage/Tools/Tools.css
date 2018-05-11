@@ -33,21 +33,46 @@
   float:left;
 }
 
+
+#form-grid{
+  display: grid;
+  /*grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(100px,auto);*/
+  grid-template-areas:
+    "a a b b"
+    "a a c c"
+    "d d c c"
+    "e e f f"
+}
+
 #title{
   border: solid black 1px;
-  grid-row: 1/1;
-  grid-column: 2/2;
+/*  align-self: start;
+*/
+  grid-area: b;
 }
 
 #description{
   border: solid black 1px;
-  grid-row: 2/3;
+  /*align-self: start;
+  */
+  grid-area: c;
 }
 
-#form-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 1em;
+#dayPicker{
+  grid-area: a;
+}
 
+#startTime{
+  grid-area: d;
+}
+
+#endTime{
+  grid-area: e;
+}
+
+#submitDiv{
+  /*align-self: end;
+  */
+  grid-area: f;
 }
