@@ -33,32 +33,21 @@
   float:left;
 }
 
-
-.title{
-  float:left;
+#title{
+  border: solid black 1px;
+  grid-row: 1/1;
+  grid-column: 2/2;
 }
 
-.container-addShift{
+#description{
+  border: solid black 1px;
+  grid-row: 2/3;
+}
+
+#form-grid{
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1em;
 
 }
-
-.modal-body{
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-  grid-template-columns: auto auto;  
-}
-
-/*
-.dayPicker{
-  background-color: red;
-}
-
-.startPicker{
-  background-color: blue;
-}
-
-.endPicker{
-  background-color: green;
-}
-*/

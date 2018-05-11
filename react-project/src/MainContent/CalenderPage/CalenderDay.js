@@ -65,9 +65,9 @@ export default class CalenderDay extends Component {
     let time = ""
     // Iterates and creates the 24 hours. Return a list with 24 hours components
     for (var i = 0; i < 24; i++) {
-      // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16
+      // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16:00
         if(start > i && start < i+2 ){
-            element.appendChild(<Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>)
+            hours[i] = <Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>;
             i +=1;
             for (var m = 0; m < middleLen-1; m++){
               hours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
