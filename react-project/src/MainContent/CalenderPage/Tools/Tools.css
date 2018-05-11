@@ -36,43 +36,73 @@
 
 #form-grid{
   display: grid;
-  /*grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(100px,auto);*/
   grid-template-areas:
-    "a a b b"
-    "a a c c"
-    "d d c c"
-    "e e f f"
+    "a b"
+    "a c"
+    "d c"
+    "e f";
 }
 
 #title{
-  border: solid black 1px;
-/*  align-self: start;
-*/
-  grid-area: b;
+ grid-area: b;
+  align-self: center;
 }
 
 #description{
-  border: solid black 1px;
-  /*align-self: start;
-  */
   grid-area: c;
 }
 
 #dayPicker{
   grid-area: a;
+
 }
 
 #startTime{
   grid-area: d;
+  justify-self: center;
 }
 
 #endTime{
   grid-area: e;
+  justify-self: center;
 }
 
 #submitDiv{
   /*align-self: end;
   */
   grid-area: f;
+  align-self: center;
+
+}
+
+
+.labelLeft{
+  padding-right: 5px;
+  font-size: 15px;
+  float:left;
+}
+
+.labelAbove{
+  width: 100px;
+  padding-top: 20px;
+}
+
+#labelDescr{
+  float:left;
+  margin-right: 1em;
+}
+
+#discInput{
+  float:left;
+  width: 50%;
+  padding-left: 1em;
+}
+
+#titleInput{
+  float:left;
+  margin-left: 5em;
+}
+
+#submitButton{
+
 }

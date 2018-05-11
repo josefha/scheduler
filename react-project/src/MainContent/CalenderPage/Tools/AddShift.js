@@ -72,7 +72,7 @@ export default class AddShift extends Component {
     <div id="container-addShift">
       <Modal.Dialog bsSize="large">
         <Modal.Header>
-          <Modal.Title> Title </Modal.Title>
+          <Modal.Title>Add a new shift </Modal.Title>
         </Modal.Header>
         <Modal.Body id="modal-body">
           <form onSubmit={this.handleSubmit} id="form-grid">
@@ -87,21 +87,23 @@ export default class AddShift extends Component {
               />
 
               <div id="title">
-                <label for="titleInput">
+                <label for="titleInput" className="labelLeft">
                   Title:
+                </label>
                   <input
-                    className="titleInput"
+                    id="titleInput"
                     type="text"
                     name="title"
                     value={this.state.shift.title}
                     onChange={this.handleChange}>
                     </input>
-                </label>
+
               </div>
 
             <div id="startTime">
-              <label for="startPicker">
+              <label for="startPicker" className="labelAbove">
                 Start time:
+              </label>
                 <TimePicker
                   className='startPicker'
                   name="startTime"
@@ -112,13 +114,13 @@ export default class AddShift extends Component {
                   step={15}
                   onChange={this.handleTime('startTime')}
                  />
-              </label>
+
             </div>
 
             <div id="description">
-              <label for="discInput">
+              <label for="discInput" className="labelLeft" id="labelDesc">
                 Description:
-
+              </label>
                 <textarea
                   className = "grid-item"
                   id="discInput"
@@ -126,12 +128,13 @@ export default class AddShift extends Component {
                   value={this.state.shift.disc}
                   onChange={this.handleChange}
                 />
-              </label>
+
            </div>
 
             <div id="endTime">
-              <label for="endPicker">
+              <label for="endPicker" className="labelAbove">
                 End time:
+              </label>
                   <TimePicker
                     className='endPicker'
                     name="endTime"
@@ -141,7 +144,7 @@ export default class AddShift extends Component {
                     end="23:59"
                     step={15}
                     onChange={this.handleTime('endTime')} />
-                </label>
+
               </div>
 
         <div id="submitDiv">
