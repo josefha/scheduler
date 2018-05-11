@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap';
 import AddShift from './AddShift'
+import introJs from 'intro.js';
 import '../CalenderPage.css';
 import './Tools.css';
 
@@ -33,6 +34,11 @@ export default class CalanderPage extends Component {
     this.props.currentClickEvent()
   }
 
+  startDemo = () => {
+    console.log("Demo started");
+    introJs("#todayBtn").start();
+
+  }
 
   render() {
     let monthTitle = format(this.props.currentdate,'MMMM')
@@ -47,8 +53,9 @@ export default class CalanderPage extends Component {
 
         <ButtonGroup>
           <Button onClick={this.handlePreviousClick}>Last</Button>
-          <Button onClick={this.handleCurrentClick}>Today</Button>
-          <Button onClick={this.handleNextClick}>Next</Button>
+          <Button onClick={this.handleCurrentClick} data-intro='Hello test' id="todayBtn">Today</Button>
+          <Button onClick={this.handleNextClick} data-intro='step 2'>Next</Button>
+          <Button onClick={this.startDemo} >Demo</Button>
         </ButtonGroup>
 
         <ButtonGroup>
