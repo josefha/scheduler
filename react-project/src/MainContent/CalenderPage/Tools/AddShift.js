@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import TimePicker from 'react-bootstrap-time-picker';
 import DayPicker from 'react-day-picker';
+import JoyRide from 'react-joyride';
 import 'react-day-picker/lib/style.css'
 import './Tools.css';
 
