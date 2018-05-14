@@ -10,14 +10,25 @@ export default class AddShift extends Component {
 
   constructor(){
     super();
-    this.state = {shift : {
+    this.state = {
+      runDemo: false,
+      shift : {
       "title": "",
       "date": "",
       "day" : 0,
       "startTime" : 0,
       "endTime" : 0,
       "disc" : ""
-    }}
+    },
+    arrayOfSteps: [
+      {
+        target:'#title',
+        content: 'This is a daypicker'
+
+      }
+    ]
+
+  }
   }
   // Close the popup
   handleClick = () => {
@@ -68,9 +79,25 @@ export default class AddShift extends Component {
     })
   }
 
+  startDemo = () => {
+    this.setState({
+      runDemo: !this.state.runDemo,
+    })
+    console.log("demo in module");
+  }
+
   render() {
     return (
     <div id="container-addShift">
+      <JoyRide
+            steps={this.state.arrayOfSteps}
+            run={this.state.runDemo}
+            debug={true}
+            continuous ={true}
+            showProgress={true}
+            spotlightClicks={true}
+      />
+
       <Modal.Dialog bsSize="large">
         <Modal.Header>
           <Modal.Title>Add a new shift </Modal.Title>
@@ -156,7 +183,9 @@ export default class AddShift extends Component {
       </Modal.Body>
 
         <Modal.Footer>
+          <Button onClick={this.startDemo} id="demoBtn"> Demo </Button>
           <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
+
 
         </Modal.Footer>
 
