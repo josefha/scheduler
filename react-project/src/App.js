@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {view: "calenderPage",
-    authorized:false,
+    authorized:true,
         email:""
     }
 

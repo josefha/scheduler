@@ -96,7 +96,7 @@ export default class AddShift extends Component {
 
 
 
-      <Modal.Dialog bsSize="large">
+      <Modal.Dialog bsSize="large" id="modalDialog">
 
         <Modal.Header>
           <Modal.Title>Add a new shift </Modal.Title>
