@@ -61,15 +61,15 @@ class CalenderPage extends Component {
 
       <Grid  className="container-fluid">
         <Row className="show-grid no-gutter">
-        <Tools addShift={this.addShift}
-               shifts={this.state.shifts}
-               previousClickEvent={this.changeToPreviousWeek}
-               nextClickEvent={this.changeToNextWeek}
-               currentClickEvent={this.changeToCurrentWeek}
-               currentdate={this.state.mondayDateCurrentWeek}
-        />
-
+          <Tools addShift={this.addShift}
+                 shifts={this.state.shifts}
+                 previousClickEvent={this.changeToPreviousWeek}
+                 nextClickEvent={this.changeToNextWeek}
+                 currentClickEvent={this.changeToCurrentWeek}
+                 currentdate={this.state.mondayDateCurrentWeek}
+          />
         </Row>
+        
         <Row className="show-grid">
           <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]}/>
           <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
