@@ -21,8 +21,7 @@ class Login extends Component {
     }
 
     componentWillMount(){
-        this.setState({
-            users:[
+        this.setState({users:[
                 {
                     id:uuid.v4(),
                     email: 'iosif.kakalelis@gmail.com',
@@ -45,11 +44,11 @@ class Login extends Component {
 
     }
     validateForm() {
-        console.log(this.state.users);
+        let users = this.state.users;
+        console.log(users);
 
-        let found = false;
+        return (this.state.email.length > 0 && this.state.password.length > 0)
 
-        return this.state.email.length > 0 && this.state.password.length > 0 ;
     }
 
     handleChange = event => {
@@ -59,8 +58,21 @@ class Login extends Component {
     };
 
     handleSubmit = () => {
+        let users = this.state.users;
+        let found = false;
+        let email = this.state.email;
+        let password = this.state.password;
        // event.preventDefault();
-        this.props.event(true, this.state.email);
+        users.map(function (user) {
+            if(user.email===email && user.password === password){
+                found = true;
+            }
+
+        });
+           if(found===false){
+               alert("Wrong email or password")
+           }
+            this.props.event(found, this.state.email);
     };
 
     render() {
@@ -72,6 +84,7 @@ class Login extends Component {
                         <FormControl
                             autoFocus
                             type="email"
+
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
@@ -82,6 +95,7 @@ class Login extends Component {
                             value={this.state.password}
                             onChange={this.handleChange}
                             type="password"
+
                         />
                     </FormGroup>
                     <Button
