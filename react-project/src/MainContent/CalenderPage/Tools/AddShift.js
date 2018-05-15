@@ -34,8 +34,8 @@ export default class AddShift extends Component {
         placement: 'right'
       },
       {
-        target: '#dayPicker',
-        content: 'Here you can change the date'
+        target: '#dayPickerDiv',
+        content: 'Here you can pick the specific date'
       },
       {
         target: '#timepickerStart',
@@ -148,7 +148,7 @@ export default class AddShift extends Component {
 
           <form onSubmit={this.handleSubmit} id="form-grid">
 
-
+            <div id="dayPickerDiv">
               <DayPicker
                 className="grid-item"
                 id='dayPicker'
@@ -156,6 +156,7 @@ export default class AddShift extends Component {
                 onDayClick={this.handleDayClick}
                 firstDayOfWeek={1}
               />
+            </div>
 
             <div id="startTime">
               <label for="startPicker" className="labelAbove">
