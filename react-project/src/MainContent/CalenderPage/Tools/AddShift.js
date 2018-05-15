@@ -23,12 +23,31 @@ export default class AddShift extends Component {
     arrayOfSteps1: [
       {
         target:'#title',
-        content: 'Here you can write the title'
+        content: 'Here you can write the title',
+        disableBeacon: true,
+        placement: 'top'
 
       },
       {
         target:'#description',
-        content: 'Here can you write the description of the shift'
+        content: 'Here can you write the description of the shift',
+        placement: 'right'
+      },
+      {
+        target: '#dayPicker',
+        content: 'Here you can change the date'
+      },
+      {
+        target: '#timepickerStart',
+        content: 'Here you can pick the start time of the shift'
+      },
+      {
+        target: '#timepickerEnd',
+        content: 'Here you can choose when the shift should end'
+      },
+      {
+          target: '#submitBtn',
+          content: 'Press here to create the shift'
       }
     ]
 
@@ -82,12 +101,18 @@ export default class AddShift extends Component {
       shift : obj
     })
   }
-
+/*
   handleDemo = () => {
     this.setState({
-      runDemo: !this.state.runDemo,
+      runDemo: false,
     })
     console.log("demo in module");
+  }
+*/
+  componentDidMount(){
+    this.setState({
+      runDemo: true,
+    })
   }
 
   render() {
@@ -99,13 +124,29 @@ export default class AddShift extends Component {
       <Modal.Dialog bsSize="large" id="modalDialog">
 
         <Modal.Header>
-          <Modal.Title>Add a new shift </Modal.Title>
+          <Modal.Title>
+            <div id="title">
+                <label for="titleInput" id="labelTitle">
+                  Title:
+                </label>
+                  <input
+                    id="titleInput"
+                    type="text"
+                    name="title"
+                    value={this.state.shift.title}
+                    onChange={this.handleChange}>
+                    </input>
+            </div>
+           </Modal.Title>
+
         </Modal.Header>
         <Modal.Body id="modal-body">
           <JoyRide
           steps={this.state.arrayOfSteps1}
           run={this.state.runDemo}
           debug={true}
+          continuous={true}
+          showProgress={true}
           />
 
 
@@ -118,28 +159,14 @@ export default class AddShift extends Component {
                 selectedDays ={this.state.shift.date}
                 onDayClick={this.handleDayClick}
                 firstDayOfWeek={1}
-
               />
-
-              <div id="title">
-                <label for="titleInput" className="labelLeft">
-                  Title:
-                </label>
-                  <input
-                    id="titleInput"
-                    type="text"
-                    name="title"
-                    value={this.state.shift.title}
-                    onChange={this.handleChange}>
-                    </input>
-
-              </div>
 
             <div id="startTime">
               <label for="startPicker" className="labelAbove">
                 Start time:
               </label>
                 <TimePicker
+                  id='timepickerStart'
                   className='startPicker'
                   name="startTime"
                   value= {this.state.shift.startTime}
@@ -153,7 +180,7 @@ export default class AddShift extends Component {
             </div>
 
             <div id="description">
-              <label for="discInput" className="labelLeft" id="labelDesc">
+              <label for="discInput" id="labelDesc">
                 Description:
               </label>
                 <textarea
@@ -172,6 +199,7 @@ export default class AddShift extends Component {
               </label>
                   <TimePicker
                     className='endPicker'
+                    id='timepickerEnd'
                     name="endTime"
                     value= {this.state.shift.endTime}
                     format={24}
@@ -183,14 +211,14 @@ export default class AddShift extends Component {
               </div>
 
         <div id="submitDiv">
-          <input type="submit" value="submit" className="grid-item" id="submitButton"/>
+          <input type="submit" value="submit" className="grid-item" id="submitBtn"/>
         </div>
         </form>
 
       </Modal.Body>
 
         <Modal.Footer>
-          <Button onClick={this.handleDemo} id="demoBtn"> Demo </Button>
+          <Button onClick={this.handleDemo} id="helpBtn"> Help </Button>
           <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
 
 

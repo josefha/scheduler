@@ -38,18 +38,16 @@
   display: grid;
   grid-template-areas:
     "a b"
-    "a c"
+    "a b"
     "d c"
     "e f";
 }
 
-#title{
- grid-area: b;
-  align-self: center;
-}
 
 #description{
-  grid-area: c;
+  grid-area: b;
+  justify-self: stretch;
+  align-self: center;
 }
 
 #dayPicker{
@@ -70,14 +68,14 @@
 #submitDiv{
   /*align-self: end;
   */
-  grid-area: f;
+  grid-area: c;
   align-self: center;
 
 }
 
 
-.labelLeft{
-  padding-right: 5px;
+#lableTitle{
+  padding-top: 1.3em;
   font-size: 15px;
   float:left;
 }
@@ -87,20 +85,23 @@
   padding-top: 20px;
 }
 
-#labelDescr{
+#labelDesc{
   float:left;
   margin-right: 1em;
+  margin-top: 1.5em;
+  font-size: 15px;
 }
 
 #discInput{
   float:left;
-  width: 50%;
+  width: 70%;
+  height: 70px;
   padding-left: 1em;
 }
 
 #titleInput{
-  float:left;
-  margin-left: 5em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 #submitButton{
