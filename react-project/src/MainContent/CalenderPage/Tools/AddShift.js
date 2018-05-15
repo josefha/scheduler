@@ -20,11 +20,15 @@ export default class AddShift extends Component {
       "endTime" : 0,
       "disc" : ""
     },
-    arrayOfSteps: [
+    arrayOfSteps1: [
       {
         target:'#title',
-        content: 'This is a daypicker'
+        content: 'Here you can write the title'
 
+      },
+      {
+        target:'#description',
+        content: 'Here can you write the description of the shift'
       }
     ]
 
@@ -79,7 +83,7 @@ export default class AddShift extends Component {
     })
   }
 
-  startDemo = () => {
+  handleDemo = () => {
     this.setState({
       runDemo: !this.state.runDemo,
     })
@@ -89,21 +93,24 @@ export default class AddShift extends Component {
   render() {
     return (
     <div id="container-addShift">
-      <JoyRide
-            steps={this.state.arrayOfSteps}
-            run={this.state.runDemo}
-            debug={true}
-            continuous ={true}
-            showProgress={true}
-            spotlightClicks={true}
-      />
+
+
 
       <Modal.Dialog bsSize="large">
+
         <Modal.Header>
           <Modal.Title>Add a new shift </Modal.Title>
         </Modal.Header>
         <Modal.Body id="modal-body">
+          <JoyRide
+          steps={this.state.arrayOfSteps1}
+          run={this.state.runDemo}
+          debug={true}
+          />
+
+
           <form onSubmit={this.handleSubmit} id="form-grid">
+
 
               <DayPicker
                 className="grid-item"
@@ -183,7 +190,7 @@ export default class AddShift extends Component {
       </Modal.Body>
 
         <Modal.Footer>
-          <Button onClick={this.startDemo} id="demoBtn"> Demo </Button>
+          <Button onClick={this.handleDemo} id="demoBtn"> Demo </Button>
           <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
 
 
