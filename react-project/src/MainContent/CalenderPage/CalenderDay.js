@@ -32,7 +32,9 @@ export default class CalenderDay extends Component {
         <div className = "WeekTitle">
         {format(this.props.date, 'dddd DD')}
         </div>
+        <div className = "Shift">
         {hoursElements}
+        </div>
             <Popover className="Info"
                 placement='left'
                 container={this}
@@ -53,6 +55,7 @@ export default class CalenderDay extends Component {
     let middleLen = -1;
     let end = -1;
     let shifts;
+    let buffer = "";
     let element = <div> </div>
     // Calculates the start, end and middle hours in the different shifts
     if (shiftslist !== undefined && shiftslist.length != 0 ) {
@@ -66,19 +69,28 @@ export default class CalenderDay extends Component {
     // Iterates and creates the 24 hours. Return a list with 24 hours components
     for (var i = 0; i < 24; i++) {
       // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16:00
+
         if(start > i && start < i+2 ){
-            hours[i] = <Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>;
+            let shiftHours = [];
+
+            shiftHours[i] = <Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>;
+            //buffer += hours[i];
             i +=1;
             for (var m = 0; m < middleLen-1; m++){
-              hours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
+              shiftHours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
+                //buffer += hours[i];
               i +=1;
             }
-          hours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
+          shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
+            //buffer += hours[i]+"</div>";
+
+            hours[i] = <div id="ashift"> { shiftHours } </div>;
         }
       else{
-        hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
+       hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
       }
     }
+   console.log(buffer);
     return hours
 
   }

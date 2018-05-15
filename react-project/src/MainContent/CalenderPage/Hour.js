@@ -51,7 +51,6 @@ export default class Hour extends Component {
       100-height.toString(),
       '%;}');
 
-
       return [css,innerShiftDiv,offSet]
 
   }

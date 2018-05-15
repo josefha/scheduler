@@ -3,12 +3,12 @@
         padding: 15% 0;
         background-color: deepskyblue;
     }
-
-    .Login form {
-        margin: 0 auto;
+}
+.Login form {
+    box-shadow: 0 0 15px 0px rgba(0,0,0,0.5);
+    margin: 0 auto;
         max-width: 30%;
         padding: 3%;
         background-color: silver;
         border-radius: 25px;
     }
-}
