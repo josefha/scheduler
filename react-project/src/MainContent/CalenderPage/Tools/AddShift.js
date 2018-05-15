@@ -101,19 +101,14 @@ export default class AddShift extends Component {
       shift : obj
     })
   }
-/*
+
   handleDemo = () => {
     this.setState({
-      runDemo: false,
+      runDemo: !this.state.runDemo,
     })
     console.log("demo in module");
   }
-*/
-  componentDidMount(){
-    this.setState({
-      runDemo: true,
-    })
-  }
+
 
   render() {
     return (
@@ -147,6 +142,7 @@ export default class AddShift extends Component {
           debug={true}
           continuous={true}
           showProgress={true}
+          spotlightClicks={true}
           />
 
 

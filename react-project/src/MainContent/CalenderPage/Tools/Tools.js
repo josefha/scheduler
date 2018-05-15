@@ -34,10 +34,6 @@ export default class CalanderPage extends Component {
           target: '#newShiftBtn',
           content: 'Press to add a new shift'
         },
-        {
-          target: '#description',
-          content: 'Test123'
-        }
       ]
     }
   }
