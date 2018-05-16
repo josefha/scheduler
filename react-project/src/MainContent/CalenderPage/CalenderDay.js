@@ -3,6 +3,7 @@ import './CalenderPage.css';
 import Hour from './Hour';
 import Tools from './Tools/Tools';
 import Popover from 'react-simple-popover';
+//import {Popover,Overlay} from 'react-bootstrap'
 
 import format from 'date-fns/format'
 
@@ -25,24 +26,17 @@ export default class CalenderDay extends Component {
 
   render(){
 
-    let hoursElements = this.createHoursElements()
+    let hoursElements = this.createHoursElements();
 
     return(
-    <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.title}>
+    <div className="CalenderDay"   id={this.props.title}>
         <div className = "WeekTitle">
         {format(this.props.date, 'dddd DD')}
         </div>
         <div className = "Shift">
         {hoursElements}
         </div>
-            <Popover className="Info"
-                placement='left'
-                container={this}
-                target={this.refs.target}
-                show={this.state.showPopover}
-                onHide={this.handleClose.bind(this)} >
 
-            </Popover>
             </div>
 
           );
@@ -83,8 +77,22 @@ export default class CalenderDay extends Component {
             }
           shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
             //buffer += hours[i]+"</div>";
+            let target = shifts.title
+            hours[i] =
 
-            hours[i] = <div id="ashift"> { shiftHours } </div>;
+                <div id = {shifts.title}  ref={target} onClick={this.togglePopover.bind(this)}> { shiftHours }
+                <Popover
+                         placement="right"
+                         container={this}
+                         containerPadding = {10}
+                         target={this.refs.target}
+                         show={this.state.showPopover}
+                         onHide={this.handleClose.bind(this)} >
+                    <strong> Shift's Title:</strong> {shifts.title}
+                    <br/>
+                    <strong>Description: </strong>{shifts.description}
+                </Popover>
+            </div>;
         }
       else{
        hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
