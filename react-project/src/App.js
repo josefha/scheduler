@@ -7,7 +7,6 @@ import SideTab from './SideTab/SideTab'
 
 import {Grid, Row, Col} from 'react-bootstrap';
 import Login from "./Login";
-//hello test
 
 class App extends Component {
   constructor(props){
@@ -38,14 +37,7 @@ class App extends Component {
       return (
           <div className="App">
               <Header event={this.handleClick}/>
-              <Grid  className="container-fluid">
-                  <Row className="show-grid no-gutter">                  
-                      <Col xs={10} lg={10}>
-                          <MainContent view={this.state.view}/>
-                      </Col>
-                  </Row>
-              </Grid>
-
+              <MainContent view={this.state.view}/>                    
           </div>
       );}
       else{

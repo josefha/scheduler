@@ -1,13 +1,43 @@
+
+#mainPageWrapper{
+
+
+}
+
+
 .CalenderDay{
   border-right: solid LightGray 1px;
   border-top: solid LightGray 1px;
   border-bottom: solid LightGray 1px;
   height:620px;
-  width: 14.2857%;
+  width: 13.8%;
+  float:left;
 }
 
-#Monday{
-  border-left: solid LightGray 1px;
+#calenderDays{
+  margin: auto;
+  width: 90%;
+  padding-top: 10px;
+}
+
+#daysContainer{
+  width: 100%;
+}
+
+
+.timeTable{
+  width:44px;
+  height: 25px;
+  padding-top: 5px;
+  padding-right: 4px;
+  color:Grey;
+}
+
+#timeTableContainer{
+  float:left;
+  width: 3.4%;
+  padding-top: 20px;
+  border-right: solid 1px LightGray;
 }
 
 .WeekTitle{

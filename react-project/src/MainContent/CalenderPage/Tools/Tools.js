@@ -93,8 +93,6 @@ export default class CalanderPage extends Component {
 
         <ButtonGroup>
           <Button onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
-          <Button>Redo</Button>
-          <Button>Undo</Button>
         </ButtonGroup>
 
         <DropdownButton title="Staff" id="bg-nested-dropdown">

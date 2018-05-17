@@ -3,7 +3,7 @@ import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 import Title from './Title/Title'
 import LogInArea from './LogInArea/LoginArea'
-import './Header.css'
+//import './Header.css'
 
 class Header extends Component {
 
