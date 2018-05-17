@@ -37,13 +37,10 @@ class App extends Component {
     if(this.state.authorized ===true){
       return (
           <div className="App">
-              <Header/>
+              <Header event={this.handleClick}/>
               <Grid  className="container-fluid">
-                  <Row className="show-grid no-gutter">
-                      <Col xs={12} lg={2}>
-                          <SideTab event = {this.handleClick} />
-                      </Col>
-                      <Col xs={12} lg={10}>
+                  <Row className="show-grid no-gutter">                  
+                      <Col xs={10} lg={10}>
                           <MainContent view={this.state.view}/>
                       </Col>
                   </Row>
