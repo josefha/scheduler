@@ -2,47 +2,31 @@ import React, { Component } from 'react';
 import './CalenderPage.css';
 import Hour from './Hour';
 import Tools from './Tools/Tools';
-import Popover from 'react-simple-popover';
+//import Popover from 'react-simple-popover';
+import {Popover,OverlayTrigger,Button,ButtonToolbar} from 'react-bootstrap'
 
 import format from 'date-fns/format'
 
 export default class CalenderDay extends Component {
   constructor(props){
     super(props);
-      this.state={
-          showPopover : false
-      }
+
 
   }
-    togglePopover = () => {
-        this.setState({
-            showPopover : !this.state.showPopover
-        });
-    };
-    handleClose(e) {
-        this.setState({open: false});
-    }
 
   render(){
 
-    let hoursElements = this.createHoursElements()
+    let hoursElements = this.createHoursElements();
 
     return(
-    <div className="CalenderDay"   ref="target" onClick={this.togglePopover.bind(this)} id={this.props.title}>
+    <div className="CalenderDay"   id={this.props.title}>
         <div className = "WeekTitle">
         {format(this.props.date, 'dddd DD')}
         </div>
         <div className = "Shift">
         {hoursElements}
         </div>
-            <Popover className="Info"
-                placement='left'
-                container={this}
-                target={this.refs.target}
-                show={this.state.showPopover}
-                onHide={this.handleClose.bind(this)} >
 
-            </Popover>
             </div>
 
           );
@@ -83,8 +67,21 @@ export default class CalenderDay extends Component {
             }
           shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
             //buffer += hours[i]+"</div>";
+            let target = shifts.title;
+            const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
+                <strong>Description: </strong>
+                <br/>
+                {shifts.disc}
+                <button>Delete</button>
 
-            hours[i] = <div id="ashift"> { shiftHours } </div>;
+            </Popover>;
+            hours[i] =
+
+                <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
+                <div id = {shifts.title} >
+                    { shiftHours }
+                </div>
+                </OverlayTrigger>
         }
       else{
        hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
