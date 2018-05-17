@@ -41,8 +41,8 @@
 }
 
 .WeekTitle{
-  padding-top: 2px;
   height: 20px;
+  color: #3E3F3B;
 }
 
 .show-grid{
@@ -68,11 +68,12 @@
 }
 
 #start{
-
+  color:#357533;
 }
+
 #middle{
   border-top: solid 0px;
-  background-color: LightGreen ;
+  background-color: #9CF18F ;
 }
 #end{
   border-top: 0px;

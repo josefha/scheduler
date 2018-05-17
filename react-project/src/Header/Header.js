@@ -23,7 +23,7 @@ class Header extends Component {
       <Navbar id="navBartest">
         <Navbar.Header>
           <Navbar.Brand>
-            Scheduling system
+            Scheduling System
           </Navbar.Brand>
         </Navbar.Header>
           <Nav>
