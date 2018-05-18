@@ -10,6 +10,7 @@ import eachDay from 'date-fns/each_day'
 import addDays from 'date-fns/add_days'
 import startOfWeek from 'date-fns/start_of_week'
 import format from 'date-fns/format'
+import uuid  from 'uuid'
 
 import './CalenderPage.css';
 
@@ -30,6 +31,7 @@ class CalenderPage extends Component {
     let key = format(shift.date,'DD/MM/YYYY')
     console.log(key)
     dict[key] = [{
+                 "id":uuid.v4(),
                 "title" : shift.title,
                 "date" : shift.date,
                 "day": shift.date.getDay(),
@@ -41,11 +43,36 @@ class CalenderPage extends Component {
           shifts : dict
       });
 
-    }
+    };
 
   dateToKey(date){
     return format(date,'DD/MM/YYYY')
   }
+
+    handleDeleteShift(id){
+        //find index of element
+        let shifts = this.state.shifts;
+
+       for(let date in shifts){
+         let dayShifts =[...shifts[date]];  // make a separate copy of the array
+         console.log(dayShifts); // find all the shifts on a specific date;
+           let index = dayShifts.findIndex(x=>x.id ===id);
+           dayShifts.splice(index,1);
+           shifts[date] = dayShifts;
+
+       }
+        this.setState(shifts:shifts);
+
+
+
+     //   this.setState({shifts: newAray});
+
+        //console.log(this.state.shifts);
+
+
+
+
+    }
 
   render() {
     let shifts = this.state.shifts;
@@ -71,13 +98,13 @@ class CalenderPage extends Component {
         </Row>
         
         <Row className="show-grid">
-          <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]}/>
-          <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
-          <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
-          <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
-          <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]}/>
-          <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
-          <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={monday} shifts={shifts[this.dateToKey(monday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)}  date={friday} shifts={shifts[this.dateToKey(friday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
+          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
         </Row>
     </Grid>
     );

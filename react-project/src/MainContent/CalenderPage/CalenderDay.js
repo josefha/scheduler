@@ -32,6 +32,10 @@ export default class CalenderDay extends Component {
           );
     }
 
+    deleteShift(id){
+        this.props.onDelete(id);
+            }
+
   createHoursElements() {
     let shiftslist = this.props.shifts
     let hours = []
@@ -72,7 +76,7 @@ export default class CalenderDay extends Component {
                 <strong>Description: </strong>
                 <br/>
                 {shifts.disc}
-                <button>Delete</button>
+                <button id = "delete"   onClick={this.deleteShift.bind(this,shifts.id)}>Delete</button>
 
             </Popover>;
             hours[i] =
