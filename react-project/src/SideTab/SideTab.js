@@ -5,23 +5,13 @@ import { Button, ButtonGroup} from 'react-bootstrap';
 import './SideTab.css';
 
 class SideTab extends Component {
-
-  staffClick = () => {
-    this.props.event('staffPage')
-  }
-
-  calenderClick = () => {
-    this.props.event('calenderPage')
-  }
+  // Flytta funktionerna till LoginArea.js samt knapparna
 
   render() {
     return (
       <div className='SideTab'>
         <div className='SideMenu'>
         <ButtonGroup vertical block>
-          <Button onClick={this.calenderClick}>Calander</Button>
-          <Button onClick={this.staffClick}>Employees</Button>
-          <Button>Settings</Button>
         </ButtonGroup>
         </div>
       </div>

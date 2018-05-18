@@ -84,20 +84,18 @@ export default class CalanderPage extends Component {
             spotlightClicks={true}
           />
 
-        <ButtonGroup>
-          <Button onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
-          <Button onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
-          <Button onClick={this.handleNextClick} id="nextWeekBtn">Next</Button>
-          <Button onClick={this.startDemo} id="demoBtn" >Demo</Button>
+        <ButtonGroup className="weekbuttons">
+          <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
+          <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
+          <Button bsSize="xsmall" onClick={this.handleNextClick} id="nextWeekBtn">Next</Button>
         </ButtonGroup>
 
-        <ButtonGroup>
-          <Button onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
-          <Button>Redo</Button>
-          <Button>Undo</Button>
+        <ButtonGroup className="newshiftbuttongroup">
+          <Button bsSize="xsmall" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
+          <Button bsSize="xsmall" onClick={this.startDemo} id="demoBtn" >Demo</Button>
         </ButtonGroup>
 
-        <DropdownButton title="Staff" id="bg-nested-dropdown">
+        <DropdownButton bsSize="small" title="Staff" id="bg-nested-dropdown" className="dropdownbutton">
             <MenuItem eventKey="1">Eric</MenuItem>
             <MenuItem eventKey="2">Joseph</MenuItem>
             <MenuItem eventKey="2">Alex</MenuItem>

@@ -61,7 +61,10 @@ export default class CalenderDay extends Component {
         if(start > i && start < i+2 ){
             let shiftHours = [];
 
-            shiftHours[i] = <Hour type="start" key={i.toString()} keyName={i.toString()} time={shifts.startTime}/>;
+            shiftHours[i] = <Hour type="start" key={i.toString()}
+                              keyName={i.toString()}
+                              time={shifts.startTime}
+                              endtime={shifts.endTime}/>;
             //buffer += hours[i];
             i +=1;
             for (var m = 0; m < middleLen-1; m++){
@@ -69,7 +72,7 @@ export default class CalenderDay extends Component {
                 //buffer += hours[i];
               i +=1;
             }
-          shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()} time={shifts.endTime}/>
+          shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()}/>
             //buffer += hours[i]+"</div>";
             let target = shifts.title;
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>

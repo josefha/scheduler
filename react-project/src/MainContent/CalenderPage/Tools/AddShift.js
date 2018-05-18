@@ -208,7 +208,7 @@ export default class AddShift extends Component {
               </div>
 
         <div id="submitDiv">
-          <input type="submit" value="submit" className="grid-item" id="submitBtn"/>
+          <Button bsStyle="primary" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
         </div>
         </form>
 

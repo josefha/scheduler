@@ -44,7 +44,7 @@ export default class Hour extends Component {
       innerShiftDiv,
       '{height: ',
       height.toString(),
-      '%; background-color: lightGreen;}',
+      '%; background-color: #9CF18F;padding-left:5px;padding-top:2px;}',
       '.',
       offSet,
       '{height:',
@@ -62,7 +62,8 @@ export default class Hour extends Component {
   render(){
     let element;
     let height;
-    let timetext = this.displaytime(this.props.time);
+    let startTimeText = this.displaytime(this.props.time);
+    let endTimeText = this.displaytime(this.props.endtime);
 
     if(this.props.type === "middle") {
       element = <div className= "Hours" id="middle">
@@ -82,7 +83,7 @@ export default class Hour extends Component {
 
         </div>
         <div className={innerShiftDiv}>
-          {timetext}
+          {startTimeText + " - " + endTimeText}
           <style>{css}</style>
 
         </div>
@@ -96,7 +97,6 @@ export default class Hour extends Component {
       element = <div className= "Hours" id="end">
 
         <div className={innerShiftDiv}>
-          {timetext}
           <style>{css}</style>
 
         </div>

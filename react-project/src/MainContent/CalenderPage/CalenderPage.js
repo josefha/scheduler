@@ -45,6 +45,14 @@ class CalenderPage extends Component {
 
     };
 
+  createTimeTable(){
+    let arrayOfDivs = [];
+    for (var i = 0; i < 24; i++) {
+      arrayOfDivs[i] = <div className="timeTable">{i+ ":00"}</div>
+    }
+    return arrayOfDivs;
+  }
+
   dateToKey(date){
     return format(date,'DD/MM/YYYY')
   }
@@ -84,8 +92,35 @@ class CalenderPage extends Component {
     let saturday = addDays(monday, 5)
     let sunday = addDays(monday, 6)
 
-    return (
+    let timeTable = this.createTimeTable();
 
+    return (
+      <div id="mainPageWrapper">
+        <Grid  className="container-fluid">
+          <Row className="show-grid no-gutter">
+            <Tools addShift={this.addShift}
+                   shifts={this.state.shifts}
+                   previousClickEvent={this.changeToPreviousWeek}
+                   nextClickEvent={this.changeToNextWeek}
+                   currentClickEvent={this.changeToCurrentWeek}
+                   currentdate={this.state.mondayDateCurrentWeek}
+            />
+          </Row>
+        </Grid>
+          <div id="calenderDays">
+            <div id="timeTableContainer">{timeTable}</div>
+              <div id="daysContainer">
+                <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]}/>
+                <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
+                <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
+                <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
+                <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]}/>
+                <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
+                <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
+              </div>
+          </div>
+
+<<<<<<< HEAD
       <Grid  className="container-fluid">
         <Row className="show-grid no-gutter">
           <Tools addShift={this.addShift}
@@ -107,6 +142,9 @@ class CalenderPage extends Component {
           <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
         </Row>
     </Grid>
+=======
+        </div>
+>>>>>>> 4ed34d168385abb8c67ce1648593ec5237503dfc
     );
   }
 

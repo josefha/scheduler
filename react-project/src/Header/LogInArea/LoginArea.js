@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 
 
 class LogInArea extends Component {
- render() {
+
+
+
+  render() {
    return (
    <div id="LoginArea">
-     <Button bsSize="large"> Profile </Button>
+     <ButtonToolbar>
+         <ButtonGroup bsSize="l">
+
+
+
+
+
+         </ButtonGroup>
+     </ButtonToolbar>
    </div>
    );
  }
