@@ -1,21 +1,11 @@
-
-.weekbuttons{
-  float: left;
+/*.AddShift{
+  height: 500px;
+  width: 500px;
 }
-
-.newshiftbuttongroup{
-  padding-right: 10%;
-}
-
-.dropdownbutton{
-  float:right;
-  padding-left: 20px;
-}
-
+*/
 #CloseBtn{
   background-color: lightgrey;
 }
-
 .Tooldiv{
   width: 100%;
 }
@@ -27,7 +17,7 @@
 
 .titleDiv{
   padding-left: 0px;
-  color: #3E3F3B;
+  color: darkGreen;
   font-size: 16px;
   display:inline;
   float: left;
@@ -116,6 +106,10 @@
 
 #submitButton{
 
+}
+
+#helpBtn{
+  float:left;
 }
 
 #modalDialog{
