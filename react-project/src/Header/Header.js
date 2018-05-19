@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
-import LogInArea from './LogInArea/LoginArea'
 //import './Header.css'
 
 class Header extends Component {
@@ -18,7 +17,6 @@ class Header extends Component {
 
   render() {
     return (
-
       <Navbar id="navBartest" collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
@@ -47,15 +45,6 @@ class Header extends Component {
             </Nav>
           </Navbar.Collapse>
       </Navbar>
-
-
-
-    /*
-    <div id="header">
-      <Title />
-      <LogInArea event={this.props.event}/>
-    </div>
-    */
     );
   }
 }
