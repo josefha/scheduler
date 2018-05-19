@@ -119,32 +119,7 @@ class CalenderPage extends Component {
                 <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
               </div>
           </div>
-
-<<<<<<< HEAD
-      <Grid  className="container-fluid">
-        <Row className="show-grid no-gutter">
-          <Tools addShift={this.addShift}
-                 shifts={this.state.shifts}
-                 previousClickEvent={this.changeToPreviousWeek}
-                 nextClickEvent={this.changeToNextWeek}
-                 currentClickEvent={this.changeToCurrentWeek}
-                 currentdate={this.state.mondayDateCurrentWeek}
-          />
-        </Row>
-        
-        <Row className="show-grid">
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={monday} shifts={shifts[this.dateToKey(monday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)}  date={friday} shifts={shifts[this.dateToKey(friday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
-          <CalenderDay onDelete = {this.handleDeleteShift.bind(this)} date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
-        </Row>
-    </Grid>
-=======
         </div>
->>>>>>> 4ed34d168385abb8c67ce1648593ec5237503dfc
     );
   }
 
