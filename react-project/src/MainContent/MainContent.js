@@ -17,7 +17,6 @@ class MainContent extends Component {
 
 
   render() {
-
     return (
       <div id='MainContent'>
           {this.returnCurrentView()}

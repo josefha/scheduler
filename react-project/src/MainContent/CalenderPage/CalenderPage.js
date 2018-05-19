@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 
 //Link to date lib:  https://date-fns.org/v1.29.0/docs/
 import subWeeks from 'date-fns/sub_weeks'
 import addWeeks from 'date-fns/add_weeks'
-import eachDay from 'date-fns/each_day'
 import addDays from 'date-fns/add_days'
 import startOfWeek from 'date-fns/start_of_week'
 import format from 'date-fns/format'
@@ -42,13 +41,13 @@ class CalenderPage extends Component {
     this.setState({
           shifts : dict
       });
-
     };
+
 
   createTimeTable(){
     let arrayOfDivs = [];
     for (var i = 0; i < 24; i++) {
-      arrayOfDivs[i] = <div className="timeTable">{i+ ":00"}</div>
+      arrayOfDivs[i] = <div key={i+ ":00"} className="timeTable">{i+ ":00"}</div>
     }
     return arrayOfDivs;
   }
@@ -56,31 +55,6 @@ class CalenderPage extends Component {
   dateToKey(date){
     return format(date,'DD/MM/YYYY')
   }
-
-    handleDeleteShift(id){
-        //find index of element
-        let shifts = this.state.shifts;
-
-       for(let date in shifts){
-         let dayShifts =[...shifts[date]];  // make a separate copy of the array
-         console.log(dayShifts); // find all the shifts on a specific date;
-           let index = dayShifts.findIndex(x=>x.id ===id);
-           dayShifts.splice(index,1);
-           shifts[date] = dayShifts;
-
-       }
-        this.setState(shifts:shifts);
-
-
-
-     //   this.setState({shifts: newAray});
-
-        //console.log(this.state.shifts);
-
-
-
-
-    }
 
   render() {
     let shifts = this.state.shifts;
@@ -110,20 +84,31 @@ class CalenderPage extends Component {
           <div id="calenderDays">
             <div id="timeTableContainer">{timeTable}</div>
               <div id="daysContainer">
-                <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]}/>
-                <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]}/>
-                <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]}/>
-                <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]}/>
-                <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]}/>
-                <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]}/>
-                <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]}/>
+                <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} deleteEvent = {this.deleteShift}/>
               </div>
           </div>
         </div>
     );
   }
 
-  //Button events
+  //Button Events
+  deleteShift = (shift) => {
+    // let dict = this.state.shifts;
+    // let key = format(shift.date,'DD/MM/YYYY')
+    console.log("Deleting");
+    // delete dict[key]
+    //
+    // this.setState({
+    //       shifts : dict
+    // });
+  }
+
   changeToPreviousWeek = () => {
     let oldDate = this.state.mondayDateCurrentWeek
     this.setState({

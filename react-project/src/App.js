@@ -3,9 +3,6 @@ import './App.css';
 
 import Header from './Header/Header'
 import MainContent from './MainContent/MainContent'
-import SideTab from './SideTab/SideTab'
-
-import {Grid, Row, Col} from 'react-bootstrap';
 import Login from "./Login";
 
 class App extends Component {
@@ -25,22 +22,23 @@ class App extends Component {
     });
   }
 
-    handleAuthorized = (a,b) => {
-        this.setState({
-            authorized: a,
-            email:b
-        });
-    }
+  handleAuthorized = (a,b) => {
+      this.setState({
+          authorized: a,
+          email:b
+      });
+  }
 
   returnCurrentView(){
-    if(this.state.authorized ===true){
+    if(this.state.authorized === true){
       return (
           <div className="App">
               <Header event={this.handleClick}/>
-              <MainContent view={this.state.view}/>                    
+              <MainContent view={this.state.view}/>
           </div>
-      );}
-      else{
+      );
+    }
+    else{
       return(<Login event = {this.handleAuthorized}/>)
        // return(<Login/>)
     }
@@ -49,11 +47,10 @@ class App extends Component {
 
   render() {
     return(
-    <div>
-        {this.returnCurrentView()}
-    </div>)
-
-  }
+      <div>
+          {this.returnCurrentView()}
+      </div>
+  )}
 }
 
 export default App;

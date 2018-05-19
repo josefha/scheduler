@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
-import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 //import './Header.css'
 
 class Header extends Component {
