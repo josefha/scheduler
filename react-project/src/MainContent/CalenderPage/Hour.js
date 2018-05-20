@@ -3,13 +3,72 @@ import './CalenderPage.css'
 
 export default class Hour extends Component {
 
+  highOrderComponent(element){
+    return <div className="wrapper">{element}</div>
+  }
+
+  render(){
+    let element;
+    if(this.props.type === "middle") {
+      element = <div className= "Hours" id="middle"></div>
+    }else if (this.props.type === "start") {
+      element = this.createStartHour()
+    }else if (this.props.type === "end") {
+      element = this.createEndHour()
+    }else{
+      element = <div className= "Hours"></div>;
+    }
+    return(
+      this.highOrderComponent(element)
+    );
+  }
+
+  createStartHour(){
+  let startTimeText = this.displaytime(this.props.time);
+  let endTimeText = this.displaytime(this.props.endtime);
+  // Css rules for each specific innerShiftDiv and offSet div
+  const css = this.createStyleForShifts("start")[0];
+  let innerShiftDiv = this.createStyleForShifts("start")[1]
+  let offSet = this.createStyleForShifts("start")[2]
+
+  return(
+    <div className= "Hours" id="start">
+      <div className={offSet}>
+        <style>{css}</style>
+      </div>
+
+      <div className={innerShiftDiv}>
+        {startTimeText + " - " + endTimeText}
+        <style>{css}</style>
+      </div>
+    </div>
+  )
+  }
+
+  createEndHour(){
+    const css = this.createStyleForShifts("end")[0];
+    let innerShiftDiv = this.createStyleForShifts("end")[1]
+    let offSet = this.createStyleForShifts("end")[2]
+    return(
+      <div className= "Hours" id="end">
+        <div className={innerShiftDiv}>
+          <style>{css}</style>
+        </div>
+
+        <div className={offSet} >
+          <style>{css}</style>
+        </div>
+      </div>
+    )
+  }
+
   // Displays the correct time
   displaytime(hour){
-    if (hour % 3600 == 0) {
+    if (hour % 3600 === 0) {
       return hour/3600 + ":00"
-    }else if(hour % 3600 == 900 ){
+    }else if(hour % 3600 === 900 ){
       return Math.floor(hour/3600) + ":15"
-    }else if(hour%3600 == 1800){
+    }else if(hour%3600 === 1800){
       return Math.floor(hour/3600) + ":30"
     }else{
       return Math.floor(hour/3600) + ":45"
@@ -31,12 +90,12 @@ export default class Hour extends Component {
     let height;
 
     let rest = this.props.time % 3600
-    if (rest == 0) {
+    if (rest === 0) {
       height = 100;
-    }else if(type=="end"){
+    }else if(type==="end"){
       // The height of the div in % which should be green
       height = (rest/3600) * 100
-    }else if(type=="start"){
+    }else if(type==="start"){
       height = 100 -((rest/3600) * 100)
     }
 
@@ -52,66 +111,5 @@ export default class Hour extends Component {
       '%;}');
 
       return [css,innerShiftDiv,offSet]
-
-  }
-
-  highOrderComponent(element){
-    return <div className="wrapper">{element}</div>
-  }
-
-  render(){
-    let element;
-    let height;
-    let startTimeText = this.displaytime(this.props.time);
-    let endTimeText = this.displaytime(this.props.endtime);
-
-    if(this.props.type === "middle") {
-      element = <div className= "Hours" id="middle">
-
-      </div>;
-    }else if (this.props.type === "start") {
-
-      // Css rules for each specific innerShiftDiv and offSet div
-      const css = this.createStyleForShifts("start")[0];
-      let innerShiftDiv = this.createStyleForShifts("start")[1]
-      let offSet = this.createStyleForShifts("start")[2]
-
-      element = <div className= "Hours" id="start" >
-        <div className={offSet} >
-          <style>{css}</style>
-
-
-        </div>
-        <div className={innerShiftDiv}>
-          {startTimeText + " - " + endTimeText}
-          <style>{css}</style>
-
-        </div>
-
-      </div>
-    }else if (this.props.type === "end") {
-
-      const css = this.createStyleForShifts("end")[0];
-      let innerShiftDiv = this.createStyleForShifts("end")[1]
-      let offSet = this.createStyleForShifts("end")[2]
-      element = <div className= "Hours" id="end">
-
-        <div className={innerShiftDiv}>
-          <style>{css}</style>
-
-        </div>
-
-        <div className={offSet} >
-          <style>{css}</style>
-
-        </div>
-
-        </div>;
-    }else{
-      element = <div className= "Hours"></div>;
-    }
-    return(
-      this.highOrderComponent(element)
-  );
   }
 }

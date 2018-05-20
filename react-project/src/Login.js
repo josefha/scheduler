@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 import uuid  from 'uuid'
-import  { Redirect } from 'react-router-dom'
-import App from './App';
-
-
-
+// import  { Redirect } from 'react-router-dom'
+// import App from './App';
 
 class Login extends Component {
     constructor(props) {
@@ -16,7 +13,6 @@ class Login extends Component {
             email: "",
             password: "",
             users: []
-
         };
     }
 
@@ -63,7 +59,11 @@ class Login extends Component {
         let email = this.state.email;
         let password = this.state.password;
        // event.preventDefault();
-        users.map(function (user) {
+
+       //OBS Changed this from .map to forEach because we don't
+       //need to save the result // Josef
+       
+        users.forEach(function (user) {
             if(user.email===email && user.password === password){
                 found = true;
             }

@@ -93,10 +93,10 @@ export default class AddShift extends Component {
   // Handles the time changes in the time picker
   handleTime = (id) => (e) =>{
     let obj = this.state.shift;
-    if(id=='startTime'){
-      obj[id] = parseInt(e)
+    if(id==='startTime'){
+      obj[id] = parseInt(e,10)
     }else{
-      obj[id] = parseInt(e);
+      obj[id] = parseInt(e,10);
     }
     this.setState({
       shift : obj
