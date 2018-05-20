@@ -1,8 +1,4 @@
-/*.AddShift{
-  height: 500px;
-  width: 500px;
-}
-*/
+
 #CloseBtn{
   background-color: lightgrey;
 }
@@ -114,4 +110,26 @@
 
 #modalDialog{
   z-index: 10;
+}
+
+
+/*
+  Media Queries for iphone 6s
+*/
+
+@media screen and (max-width:400px){
+  #timepickerStart{
+    height: 40px;
+  }
+  #timepickerEnd{
+    height: 40px;
+  }
+
+  .DayPicker-Months{
+
+  }
+
+
+
+
 }
