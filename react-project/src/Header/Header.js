@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
-<<<<<<< HEAD
 import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
-import LogInArea from './LogInArea/LoginArea'
-=======
->>>>>>> 142a0c546801c24c138026d57df42f73ddc1e630
 //import './Header.css'
 
 class Header extends Component {
