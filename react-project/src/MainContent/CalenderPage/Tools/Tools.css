@@ -33,42 +33,38 @@
 #form-grid{
   display: grid;
   grid-template-areas:
-    "a b"
-    "a b"
-    "d c"
-    "e f";
+    "dayPicker description"
+    "dayPicker description"
+    "startTime description"
+    "endTime submitDiv";
 }
 
 
 #description{
-  grid-area: b;
+  grid-area: description;
   justify-self: stretch;
-  align-self: center;
 }
 
 #dayPicker{
-  grid-area: a;
+  grid-area: dayPicker;
 
 }
 
 #startTime{
-  grid-area: d;
+  grid-area: startTime;
   justify-self: center;
 }
 
 #endTime{
-  grid-area: e;
+  grid-area: endTime;
   justify-self: center;
 }
 
 #submitDiv{
-  /*align-self: end;
-  */
-  grid-area: c;
+  grid-area: submitDiv;
   align-self: center;
 
 }
-
 
 #lableTitle{
   padding-top: 1.3em;
@@ -85,23 +81,20 @@
   float:left;
   margin-right: 1em;
   margin-top: 1.5em;
+  margin-left: 1em;
   font-size: 15px;
 }
 
-#discInput{
+#descInput{
   float:left;
-  width: 70%;
-  height: 70px;
+  width: 86%;
+  height: 156px;
   padding-left: 1em;
 }
 
 #titleInput{
   margin-left: 1em;
   margin-top: 1em;
-}
-
-#submitButton{
-
 }
 
 #helpBtn{
@@ -113,23 +106,50 @@
 }
 
 
+
+
 /*
   Media Queries for iphone 6s
 */
 
 @media screen and (max-width:400px){
-  #timepickerStart{
-    height: 40px;
+/*
+Grid formation
+*/
+#form-grid{
+  display: grid;
+  grid-template-areas:
+    "DayPicker description"
+    "dayPicker description"
+    "startTime endTime"
+    "submitDiv submitDiv";
+}
+
+.customSubBtn{
+  line-height: 0px
   }
-  #timepickerEnd{
-    height: 40px;
+
+/*
+Edits both end and start picker for time
+*/
+  .startPicker, .endPicker{
+    font-size: 12px;
+    height: 22px;
+    padding: 0px 16px;
   }
 
-  .DayPicker-Months{
 
+  #submitDiv{
+    margin-top:20px;
   }
 
+  #description{
+    align-self:stretch;
+  }
 
-
+  #descInput{
+    height: 135px;
+    width: 118px;
+  }
 
 }

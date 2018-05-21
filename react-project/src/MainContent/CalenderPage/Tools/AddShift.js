@@ -3,7 +3,7 @@ import {Button, Modal} from 'react-bootstrap';
 import TimePicker from 'react-bootstrap-time-picker';
 import DayPicker from 'react-day-picker';
 import JoyRide from 'react-joyride';
-import MediaQuery from 'react-responsive'
+import { bootstrapUtils } from 'react-bootstrap';
 import 'react-day-picker/lib/style.css'
 import './Tools.css';
 
@@ -19,7 +19,7 @@ export default class AddShift extends Component {
       "day" : 0,
       "startTime" : 0,
       "endTime" : 0,
-      "disc" : ""
+      "desc" : ""
     },
     arrayOfSteps1: [
       {
@@ -162,7 +162,6 @@ export default class AddShift extends Component {
                   Start time:
                 </label>
                   <TimePicker
-                    id='timepickerStart'
                     className='startPicker'
                     name="startTime"
                     value= {this.state.shift.startTime}
@@ -176,14 +175,14 @@ export default class AddShift extends Component {
               </div>
 
               <div id="description">
-                <label for="discInput" id="labelDesc">
+                <label for="descInput" id="labelDesc">
                   Description:
                 </label>
                   <textarea
                     className = "grid-item"
-                    id="discInput"
-                    name="disc"
-                    value={this.state.shift.disc}
+                    id="descInput"
+                    name="desc"
+                    value={this.state.shift.desc}
                     onChange={this.handleChange}
                   />
 
@@ -195,7 +194,6 @@ export default class AddShift extends Component {
                 </label>
                     <TimePicker
                       className='endPicker'
-                      id='timepickerEnd'
                       name="endTime"
                       value= {this.state.shift.endTime}
                       format={24}
@@ -207,7 +205,7 @@ export default class AddShift extends Component {
                 </div>
 
           <div id="submitDiv">
-            <Button bsStyle="primary" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
+            <Button bsStyle="primary customSubBtn" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
           </div>
           </form>
 
