@@ -23,9 +23,8 @@ export default class CalenderDay extends Component {
       );
     }
 
-
-    handleDeleteBtn = (id) => {
-      this.props.deleteEvent(id);
+    deleteShift(id,date){
+        this.props.onDelete(id);
     }
 
 
@@ -72,7 +71,7 @@ export default class CalenderDay extends Component {
                 <br/>
                 {shifts.disc}
 
-                <button id = "delete" onClick={this.handleDeleteBtn(shifts)}>Delete</button>
+                <button id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
                 </Popover>;
 
