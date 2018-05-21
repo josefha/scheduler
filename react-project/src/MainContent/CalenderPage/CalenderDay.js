@@ -69,9 +69,9 @@ export default class CalenderDay extends Component {
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
-                <strong>Start: </strong> {shifts.startTime}
+                <strong>Start: </strong> {shifts.startTime/3600}
                 <br/>
-                <strong>End: </strong>{shifts.endTime}
+                <strong>End: </strong>{shifts.endTime/3600}
                 <br/>
                 <strong>Description: </strong>
                 {shifts.disc}
