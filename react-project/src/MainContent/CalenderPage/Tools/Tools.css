@@ -1,21 +1,7 @@
 
-.weekbuttons{
-  float: left;
-}
-
-.newshiftbuttongroup{
-  padding-right: 10%;
-}
-
-.dropdownbutton{
-  float:right;
-  padding-left: 20px;
-}
-
 #CloseBtn{
   background-color: lightgrey;
 }
-
 .Tooldiv{
   width: 100%;
 }
@@ -27,7 +13,7 @@
 
 .titleDiv{
   padding-left: 0px;
-  color: #3E3F3B;
+  color: darkGreen;
   font-size: 16px;
   display:inline;
   float: left;
@@ -118,6 +104,32 @@
 
 }
 
+#helpBtn{
+  float:left;
+}
+
 #modalDialog{
   z-index: 10;
+}
+
+
+/*
+  Media Queries for iphone 6s
+*/
+
+@media screen and (max-width:400px){
+  #timepickerStart{
+    height: 40px;
+  }
+  #timepickerEnd{
+    height: 40px;
+  }
+
+  .DayPicker-Months{
+
+  }
+
+
+
+
 }

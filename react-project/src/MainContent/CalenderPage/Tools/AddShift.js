@@ -3,6 +3,7 @@ import {Button, Modal} from 'react-bootstrap';
 import TimePicker from 'react-bootstrap-time-picker';
 import DayPicker from 'react-day-picker';
 import JoyRide from 'react-joyride';
+import MediaQuery from 'react-responsive'
 import 'react-day-picker/lib/style.css'
 import './Tools.css';
 
@@ -114,115 +115,112 @@ export default class AddShift extends Component {
     return (
     <div id="container-addShift">
 
+        <Modal.Dialog bsSize="medium" id="modalDialog">
+
+          <Modal.Header>
+            <Modal.Title>
+              <div id="title">
+                  <label for="titleInput" id="labelTitle">
+                    Title:
+                  </label>
+                    <input
+                      id="titleInput"
+                      type="text"
+                      name="title"
+                      value={this.state.shift.title}
+                      onChange={this.handleChange}>
+                      </input>
+              </div>
+             </Modal.Title>
+
+          </Modal.Header>
+          <Modal.Body id="modal-body">
+            <JoyRide
+            steps={this.state.arrayOfSteps1}
+            run={this.state.runDemo}
+            debug={true}
+            continuous={true}
+            showProgress={true}
+            spotlightClicks={true}
+            />
 
 
-      <Modal.Dialog bsSize="large" id="modalDialog">
+            <form onSubmit={this.handleSubmit} id="form-grid">
 
-        <Modal.Header>
-          <Modal.Title>
-            <div id="title">
-                <label for="titleInput" id="labelTitle">
-                  Title:
-                </label>
-                  <input
-                    id="titleInput"
-                    type="text"
-                    name="title"
-                    value={this.state.shift.title}
-                    onChange={this.handleChange}>
-                    </input>
-            </div>
-           </Modal.Title>
-
-        </Modal.Header>
-        <Modal.Body id="modal-body">
-          <JoyRide
-          steps={this.state.arrayOfSteps1}
-          run={this.state.runDemo}
-          debug={true}
-          continuous={true}
-          showProgress={true}
-          spotlightClicks={true}
-          />
-
-
-          <form onSubmit={this.handleSubmit} id="form-grid">
-
-            <div id="dayPickerDiv">
-              <DayPicker
-                className="grid-item"
-                id='dayPicker'
-                selectedDays ={this.state.shift.date}
-                onDayClick={this.handleDayClick}
-                firstDayOfWeek={1}
-              />
-            </div>
-
-            <div id="startTime">
-              <label for="startPicker" className="labelAbove">
-                Start time:
-              </label>
-                <TimePicker
-                  id='timepickerStart'
-                  className='startPicker'
-                  name="startTime"
-                  value= {this.state.shift.startTime}
-                  format={24}
-                  start="00:00"
-                  end="23:59"
-                  step={15}
-                  onChange={this.handleTime('startTime')}
-                 />
-
-            </div>
-
-            <div id="description">
-              <label for="discInput" id="labelDesc">
-                Description:
-              </label>
-                <textarea
-                  className = "grid-item"
-                  id="discInput"
-                  name="disc"
-                  value={this.state.shift.disc}
-                  onChange={this.handleChange}
+              <div id="dayPickerDiv">
+                <DayPicker
+                  className="grid-item"
+                  id='dayPicker'
+                  selectedDays ={this.state.shift.date}
+                  onDayClick={this.handleDayClick}
+                  firstDayOfWeek={1}
                 />
+              </div>
 
-           </div>
-
-            <div id="endTime">
-              <label for="endPicker" className="labelAbove">
-                End time:
-              </label>
+              <div id="startTime">
+                <label for="startPicker" className="labelAbove">
+                  Start time:
+                </label>
                   <TimePicker
-                    className='endPicker'
-                    id='timepickerEnd'
-                    name="endTime"
-                    value= {this.state.shift.endTime}
+                    id='timepickerStart'
+                    className='startPicker'
+                    name="startTime"
+                    value= {this.state.shift.startTime}
                     format={24}
                     start="00:00"
                     end="23:59"
                     step={15}
-                    onChange={this.handleTime('endTime')} />
+                    onChange={this.handleTime('startTime')}
+                   />
 
               </div>
 
-        <div id="submitDiv">
-          <Button bsStyle="primary" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
-        </div>
-        </form>
+              <div id="description">
+                <label for="discInput" id="labelDesc">
+                  Description:
+                </label>
+                  <textarea
+                    className = "grid-item"
+                    id="discInput"
+                    name="disc"
+                    value={this.state.shift.disc}
+                    onChange={this.handleChange}
+                  />
 
-      </Modal.Body>
+             </div>
 
-        <Modal.Footer>
-          <Button onClick={this.handleDemo} id="helpBtn"> Help </Button>
-          <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
+              <div id="endTime">
+                <label for="endPicker" className="labelAbove">
+                  End time:
+                </label>
+                    <TimePicker
+                      className='endPicker'
+                      id='timepickerEnd'
+                      name="endTime"
+                      value= {this.state.shift.endTime}
+                      format={24}
+                      start="00:00"
+                      end="23:59"
+                      step={15}
+                      onChange={this.handleTime('endTime')} />
+
+                </div>
+
+          <div id="submitDiv">
+            <Button bsStyle="primary" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
+          </div>
+          </form>
+
+        </Modal.Body>
+
+          <Modal.Footer>
+            <Button onClick={this.handleDemo} id="helpBtn"> Help </Button>
+            <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
 
 
-        </Modal.Footer>
+          </Modal.Footer>
 
-      </Modal.Dialog>
-
+        </Modal.Dialog>
 
     </div>
     );
