@@ -91,8 +91,8 @@ export default class CalanderPage extends Component {
         </ButtonGroup>
 
         <ButtonGroup className="newshiftbuttongroup">
-          <Button bsSize="xsmall" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
-          <Button bsSize="xsmall" onClick={this.startDemo} id="demoBtn" >Demo</Button>
+          <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
+          <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >Demo</Button>
         </ButtonGroup>
 
         <DropdownButton bsSize="small" title="Staff" id="bg-nested-dropdown" className="dropdownbutton">
