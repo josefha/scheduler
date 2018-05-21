@@ -43,8 +43,21 @@ class CalenderPage extends Component {
       });
     };
 
+    handleDeleteShift(shift) {
 
-  createTimeTable(){
+        let dict = this.state.shifts;
+        let key = format(shift.date,'DD/MM/YYYY');
+        delete dict[key];
+
+        this.setState({
+            shifts : dict
+        });
+    }
+
+
+
+
+        createTimeTable(){
     let arrayOfDivs = [];
     for (var i = 0; i < 24; i++) {
       arrayOfDivs[i] = <div key={i+ ":00"} className="timeTable">{i+ ":00"}</div>
@@ -84,13 +97,13 @@ class CalenderPage extends Component {
           <div id="calenderDays">
             <div id="timeTableContainer">{timeTable}</div>
               <div id="daysContainer">
-                <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} deleteEvent = {this.deleteShift}/>
-                <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} deleteEvent = {this.deleteShift}/>
+                <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
               </div>
           </div>
         </div>
