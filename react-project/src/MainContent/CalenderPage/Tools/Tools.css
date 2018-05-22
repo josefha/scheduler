@@ -141,6 +141,13 @@ Edits both end and start picker for time
 
   #submitDiv{
     margin-top:20px;
+    line-height: 0px;
+  }
+
+  #submitBtn{
+    color: white;
+    background-color: green;
+    line-height: 3px;
   }
 
   #description{

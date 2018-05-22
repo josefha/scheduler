@@ -8,28 +8,32 @@ import format from 'date-fns/format'
 
 export default class CalenderDay extends Component {
 
-  /*
-  Function to get the size of the viewport
-  Returns: array with the width and height of the viewport 
-  */
-  getViewPort(){
-    var w = window,
-    d = document,
-    e = d.documentElement,
-    g = d.getElementsByTagName('body')[0],
-    x = w.innerWidth || e.clientWidth || g.clientWidth,
-    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-    return [x,y]
+  constructor(){
+    super();
+    this.state={
+      screenWidth: 0,
+      screenHeight: 0
+    }
+
+  }
+
+
+  componentDidMount(){
+    this.setViewPort();
+    window.addEventListener("resize",this.setViewPort);
+    console.log("test:" + this.state.screenWidth + " " + this.state.screenHeight);
   }
 
     render(){
       let hoursElements = this.createHoursElements();
-      let viewPort = this.getViewPort();
       let date;
-      if (viewPort[0] < 400) {
-        date = format(this.props.date, 'dd DD')
+      /*
+        Check and formats the date depending on the screen size
+      */
+      if (this.state.screenWidth > 400) {
+        date = format(this.props.date, 'dddd DD');
       }else{
-        date = format(this.props.date, 'dddd DD')
+        date = format(this.props.date, 'dd DD');
       }
 
       return(
@@ -43,6 +47,27 @@ export default class CalenderDay extends Component {
         </div>
       );
     }
+
+
+
+  /*
+    Function to get the size of the viewport
+    Returns: array with the width and height of the viewport
+  */
+  setViewPort = () => {
+    var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+    this.setState({
+        screenWidth:x,
+        screenHeight:y,
+    })
+
+  }
 
     deleteShift(id,date){
         this.props.onDelete(id);

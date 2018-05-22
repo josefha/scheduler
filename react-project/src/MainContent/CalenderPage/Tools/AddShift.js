@@ -115,12 +115,12 @@ export default class AddShift extends Component {
     return (
     <div id="container-addShift">
 
-        <Modal.Dialog bsSize="medium" id="modalDialog">
+        <Modal.Dialog id="modalDialog">
 
           <Modal.Header>
             <Modal.Title>
               <div id="title">
-                  <label for="titleInput" id="labelTitle">
+                  <label htmlFor="titleInput" id="labelTitle">
                     Title:
                   </label>
                     <input
@@ -158,7 +158,7 @@ export default class AddShift extends Component {
               </div>
 
               <div id="startTime">
-                <label for="startPicker" className="labelAbove">
+                <label htmlFor="startPicker" className="labelAbove">
                   Start time:
                 </label>
                   <TimePicker
@@ -205,7 +205,7 @@ export default class AddShift extends Component {
                 </div>
 
           <div id="submitDiv">
-            <Button bsStyle="primary customSubBtn" id="submitBtn" type="submit" bsSize="large"> Submit </Button>
+            <Button id="submitBtn" type="submit" bsSize="large"> Submit </Button>
           </div>
           </form>
 
