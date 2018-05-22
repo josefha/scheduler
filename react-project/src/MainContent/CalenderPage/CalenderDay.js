@@ -26,6 +26,18 @@ export default class CalenderDay extends Component {
     deleteShift(id,date){
         this.props.onDelete(id);
     }
+    displaytime(hour){
+        if (hour % 3600 === 0) {
+            return hour/3600 + ":00"
+        }else if(hour % 3600 === 900 ){
+            return Math.floor(hour/3600) + ":15"
+        }else if(hour%3600 === 1800){
+            return Math.floor(hour/3600) + ":30"
+        }else{
+            return Math.floor(hour/3600) + ":45"
+        }
+
+    }
 
 
     createHoursElements() {
@@ -44,6 +56,8 @@ export default class CalenderDay extends Component {
         end = shifts.endTime / 3600 + 1;
         middleLen = (end - start) - (start%1);
       }
+//Formats hour variables
+
 
     // Iterates and creates the 24 hours. Return a list with 24 hours components
     for (var i = 0; i < 24; i++) {
@@ -69,9 +83,9 @@ export default class CalenderDay extends Component {
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
-                <strong>Start: </strong> {shifts.startTime/3600}
+                <strong>Start: </strong> {this.displaytime(shifts.startTime)}
                 <br/>
-                <strong>End: </strong>{shifts.endTime/3600}
+                <strong>End: </strong>{this.displaytime(shifts.endTime)}
                 <br/>
                 <strong>Description: </strong>
                 {shifts.disc}
