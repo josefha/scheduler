@@ -40,8 +40,8 @@ export default class CalenderDay extends Component {
       // Calculates the start, end and middle hours in the different shifts
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {
         shifts = shiftslist[0]
-        start = shifts.startTime / 3600;
-        end = shifts.endTime / 3600
+        start = shifts.startTime / 3600 + 1;
+        end = shifts.endTime / 3600 + 1;
         middleLen = (end - start) - (start%1);
       }
 
@@ -67,11 +67,16 @@ export default class CalenderDay extends Component {
             //buffer += hours[i]+"</div>";
             //let target = shifts.title;
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
-                <strong>Description: </strong>
-                <br/>
-                {shifts.disc}
 
-                <button id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
+
+                <strong>Start: </strong> {shifts.startTime/3600}
+                <br/>
+                <strong>End: </strong>{shifts.endTime/3600}
+                <br/>
+                <strong>Description: </strong>
+                {shifts.disc}
+                <br/>
+                <button class="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
                 </Popover>;
 
