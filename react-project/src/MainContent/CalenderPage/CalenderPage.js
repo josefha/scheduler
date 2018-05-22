@@ -94,7 +94,8 @@ class CalenderPage extends Component {
                    currentdate={this.state.mondayDateCurrentWeek}
             />
           </Row>
-          <Row>
+        </Grid>
+
             <div id="calenderDays">
                 <div id="timeTableContainer">{timeTable}</div>
                   <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
@@ -105,8 +106,6 @@ class CalenderPage extends Component {
                   <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
                   <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
             </div>
-          </Row>
-        </Grid>
 
         </div>
     );
