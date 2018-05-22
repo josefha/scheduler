@@ -119,7 +119,7 @@ Grid formation
 #form-grid{
   display: grid;
   grid-template-areas:
-    "DayPicker description"
+    "dayPicker description"
     "dayPicker description"
     "startTime endTime"
     "submitDiv submitDiv";
