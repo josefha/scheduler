@@ -7,16 +7,11 @@
   border-right: solid LightGray 1px;
   border-top: solid LightGray 1px;
   border-bottom: solid LightGray 1px;
-/*
-  height:620px;
-  width: 13.8%;
-  float:left;
-*/
 }
 
 
 /*
-Test with grids
+  Calenderdays are now encapsuled in a grid
 */
 
 #calenderDays{
@@ -30,15 +25,24 @@ Test with grids
   align-self: stretch;
 }
 
-/*
-#calenderDays{
-  margin: auto;
-  width: 90%;
-  padding-top: 10px;
-}
-*/
+
 #daysContainer{
   width: 100%;
+}
+
+
+#timeTableContainer{
+}
+
+.timeTable{
+  padding-top: 5px;
+  border-right: 1px solid LightGrey;
+
+}
+
+#emptyHour{
+  height:21px;
+  border-right: 1px solid LightGrey;
 }
 
 /*

@@ -57,13 +57,14 @@ class CalenderPage extends Component {
 
 
 
-        createTimeTable(){
-    let arrayOfDivs = [];
-    for (var i = 0; i < 24; i++) {
-      arrayOfDivs[i] = <div key={i+ ":00"} className="timeTable">{i+ ":00"}</div>
+    createTimeTable(){
+      let arrayOfDivs = [];
+      arrayOfDivs[0] = <div key="emptyTime" className="timeTable" id="emptyHour"></div>
+      for (var i = 1; i < 25; i++) {
+        arrayOfDivs[i] = <div key={i-1+ ":00"} className="timeTable">{i-1+ ":00"}</div>
+      }
+      return arrayOfDivs;
     }
-    return arrayOfDivs;
-  }
 
   dateToKey(date){
     return format(date,'DD/MM/YYYY')
