@@ -8,13 +8,34 @@ import format from 'date-fns/format'
 
 export default class CalenderDay extends Component {
 
+  /*
+  Function to get the size of the viewport
+  Returns: array with the width and height of the viewport 
+  */
+  getViewPort(){
+    var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    return [x,y]
+  }
+
     render(){
       let hoursElements = this.createHoursElements();
+      let viewPort = this.getViewPort();
+      let date;
+      if (viewPort[0] < 400) {
+        date = format(this.props.date, 'dd DD')
+      }else{
+        date = format(this.props.date, 'dddd DD')
+      }
 
       return(
         <div className="CalenderDay"   id={this.props.title}>
             <div className = "WeekTitle">
-            {format(this.props.date, 'dddd DD')}
+            {date}
             </div>
             <div className = "Shift">
             {hoursElements}

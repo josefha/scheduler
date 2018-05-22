@@ -7,9 +7,11 @@
   border-right: solid LightGray 1px;
   border-top: solid LightGray 1px;
   border-bottom: solid LightGray 1px;
+/*
   height:620px;
   width: 13.8%;
   float:left;
+*/
 }
 
 
@@ -20,9 +22,13 @@ Test with grids
 #calenderDays{
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-  align-self: stretch;
+
 }
 
+.CalenderDay{
+  justify-self: stretch;
+  align-self: stretch;
+}
 
 /*
 #calenderDays{

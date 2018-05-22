@@ -42,7 +42,7 @@
 
 #description{
   grid-area: description;
-  justify-self: stretch;
+  align-self: stretch;
 }
 
 #dayPicker{
