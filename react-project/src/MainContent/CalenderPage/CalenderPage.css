@@ -30,10 +30,6 @@
   width: 100%;
 }
 
-
-#timeTableContainer{
-}
-
 .timeTable{
   padding-top: 5px;
   border-right: 1px solid LightGrey;
@@ -45,23 +41,6 @@
   border-right: 1px solid LightGrey;
 }
 
-/*
-.timeTable{
-  width:44px;
-  height: 25px;
-  padding-top: 5px;
-  padding-right: 4px;
-  color:Grey;
-}
-*/
-/*
-#timeTableContainer{
-  float:left;
-  width: 3.4%;
-  padding-top: 20px;
-  border-right: solid 1px LightGray;
-}
-*/
 .WeekTitle{
   height: 20px;
   color: #3E3F3B;
