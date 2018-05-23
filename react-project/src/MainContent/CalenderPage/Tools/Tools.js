@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, ButtonToolbar, MenuItem} from 'react-bootstrap';
+import { Button, ButtonGroup, MenuItem} from 'react-bootstrap';
 import AddShift from './AddShift';
 import JoyRide from 'react-joyride';
 import '../CalenderPage.css';
@@ -73,8 +73,8 @@ export default class CalanderPage extends Component {
           <p className="monthTitle"> {monthTitle} </p>
           <p className="yearTitle"> {yearTitle} </p>
         </div>
-        <div  className="menuDiv">
 
+        <div  className="menuDiv">
           <JoyRide
             steps={this.state.arrayOfSteps}
             run={this.state.runDemo}
@@ -83,7 +83,7 @@ export default class CalanderPage extends Component {
             showProgress={true}
             spotlightClicks={true}
           />
-        <ButtonToolbar>
+
           <ButtonGroup className="weekButtons">
             <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
             <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
@@ -94,8 +94,6 @@ export default class CalanderPage extends Component {
             <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
             <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >Demo</Button>
           </ButtonGroup>
-        </ButtonToolbar>
-
 
         </div>
 

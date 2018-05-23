@@ -8,7 +8,7 @@
 
 .menuDiv{
   width: 70%;
-  float: left;
+  float: right;
 }
 
 .titleDiv{
@@ -29,11 +29,10 @@
   float:left;
 }
 
-
-
-.btn-toolbar{
-  float:right;
+.weekButtons{
+  margin-right: 10px
 }
+
 
 /*
  Rules for Addshift
