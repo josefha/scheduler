@@ -39,12 +39,14 @@ export default class AddShift extends Component {
         content: 'Here you can pick the specific date'
       },
       {
-        target: '#timepickerStart',
-        content: 'Here you can pick the start time of the shift'
+        target: '.startPicker',
+        content: 'Here you can pick the start time of the shift',
+        placement: 'top'
       },
       {
-        target: '#timepickerEnd',
-        content: 'Here you can choose when the shift should end'
+        target: '.endPicker',
+        content: 'Here you can choose when the shift should end',
+        placement: 'top'
       },
       {
           target: '#submitBtn',
@@ -107,7 +109,6 @@ export default class AddShift extends Component {
     this.setState({
       runDemo: !this.state.runDemo,
     })
-    console.log("demo in module");
   }
 
 
