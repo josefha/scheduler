@@ -109,7 +109,14 @@ export default class CalenderDay extends Component {
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {
         shifts = shiftslist[0]
         start = shifts.startTime / 3600 + 1;
-        end = shifts.endTime / 3600 + 1;
+          if (shifts.endTime % 3600 === 0){
+              end = shifts.endTime / 3600 + 2;
+          }
+         else  if (shifts.endTime % 3600 === 1800){
+              end = shifts.endTime / 3600 + 1.5;
+          }
+          
+
         middleLen = (end - start) - (start%1);
       }
 //Formats hour variables
