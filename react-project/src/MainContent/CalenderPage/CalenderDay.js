@@ -113,9 +113,9 @@ export default class CalenderDay extends Component {
               end = shifts.endTime / 3600 + 2;
           }
          else  if (shifts.endTime % 3600 === 1800){
-              end = shifts.endTime / 3600 + 1.5;
+              end = shifts.endTime / 3600 + 2;
           }
-          
+
 
         middleLen = (end - start) - (start%1);
       }
