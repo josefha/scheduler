@@ -1,7 +1,7 @@
 
-#CloseBtn{
-  background-color: lightgrey;
-}
+/*
+  Css rules for the toolsBar
+*/
 .Tooldiv{
   width: 100%;
 }
@@ -29,6 +29,19 @@
   float:left;
 }
 
+
+
+.btn-toolbar{
+  float:right;
+}
+
+/*
+ Rules for Addshift
+*/
+
+#CloseBtn{
+  background-color: lightgrey;
+}
 
 #form-grid{
   display: grid;

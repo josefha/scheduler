@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap';
+import { Button, ButtonGroup, ButtonToolbar, MenuItem} from 'react-bootstrap';
 import AddShift from './AddShift';
 import JoyRide from 'react-joyride';
 import '../CalenderPage.css';
@@ -83,23 +83,19 @@ export default class CalanderPage extends Component {
             showProgress={true}
             spotlightClicks={true}
           />
+        <ButtonToolbar>
+          <ButtonGroup className="weekButtons">
+            <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
+            <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
+            <Button bsSize="xsmall" onClick={this.handleNextClick} id="nextWeekBtn">Next</Button>
+          </ButtonGroup>
 
-        <ButtonGroup className="weekbuttons">
-          <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
-          <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
-          <Button bsSize="xsmall" onClick={this.handleNextClick} id="nextWeekBtn">Next</Button>
-        </ButtonGroup>
+          <ButtonGroup className="newShiftButtonGroup">
+            <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
+            <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >Demo</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
 
-        <ButtonGroup className="newshiftbuttongroup">
-          <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
-          <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >Demo</Button>
-        </ButtonGroup>
-
-        <DropdownButton bsSize="small" title="Staff" id="bg-nested-dropdown" className="dropdownbutton">
-            <MenuItem eventKey="1">Eric</MenuItem>
-            <MenuItem eventKey="2">Joseph</MenuItem>
-            <MenuItem eventKey="2">Alex</MenuItem>
-        </DropdownButton>
 
         </div>
 

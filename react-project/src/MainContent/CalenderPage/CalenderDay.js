@@ -14,15 +14,25 @@ export default class CalenderDay extends Component {
       screenWidth: 0,
       screenHeight: 0
     }
-
   }
+
+  /*
+    Add event listener for resizing the window
+  */
 
 
   componentDidMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
-    console.log("test:" + this.state.screenWidth + " " + this.state.screenHeight);
+
   }
+  /*
+    Remove event listener
+ */
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
 
     render(){
       let hoursElements = this.createHoursElements();
