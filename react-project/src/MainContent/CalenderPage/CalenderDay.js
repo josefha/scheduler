@@ -132,7 +132,7 @@ export default class CalenderDay extends Component {
                 <strong>Description: </strong>
                 {shifts.disc}
                 <br/>
-                <button class="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
+                <button className="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
                 </Popover>;
 

@@ -44,7 +44,7 @@ export default class AddShift extends Component {
         placement: 'top'
       },
       {
-        target: '.endPicker',
+        target: '.endPicker ',
         content: 'Here you can choose when the shift should end',
         placement: 'top'
       },

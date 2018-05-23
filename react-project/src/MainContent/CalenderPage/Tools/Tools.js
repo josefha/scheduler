@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, MenuItem} from 'react-bootstrap';
 import AddShift from './AddShift';
-import JoyRide from 'react-joyride';
+import JoyRide from 'react-joyride'
 import '../CalenderPage.css';
 import './Tools.css';
+import {tools} from './joyRideSteps.js'
 
 import format from 'date-fns/format'
 
@@ -15,27 +16,19 @@ export default class CalanderPage extends Component {
       showPopUp : false,
       runDemo : false,
       modalIsOpen: false,
-      arrayOfSteps: [
-        {
-          target: '#nextWeekBtn',
-          content: 'Press to get to the next week',
-          disableBeacon: true
-        },
-        {
-          target: '#todayBtn',
-          content: 'Press to get to the current week'
-        },
-        {
-          target: '#lastWeekBtn',
-          content: 'Press to get to the previous week',
-          placement: 'left',
-        },
-        {
-          target: '#newShiftBtn',
-          content: 'Press to add a new shift'
-        },
-      ]
+      arrayOfSteps: []
     }
+  }
+
+  getJoyRideSteps(){
+
+    console.log(tools);
+
+    this.setState({
+      arrayOfSteps:tools
+    })
+
+    console.log("state har: " + this.state.arrayOfSteps);
   }
 
   togglePopUp = () => {
@@ -63,7 +56,10 @@ export default class CalanderPage extends Component {
     });
   }
 
+  componentDidMount(){
+    this.getJoyRideSteps();
 
+  }
   render() {
     let monthTitle = format(this.props.currentdate,'MMMM')
     let yearTitle = format(this.props.currentdate,'YYYY')
