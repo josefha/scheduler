@@ -103,47 +103,53 @@ export default class CalenderDay extends Component {
       let middleLen = -1;
       let end = -1;
       let shifts;
+
+      let timeInStart, timeInEnd;
       //et buffer = "";
 
       // Calculates the start, end and middle hours in the different shifts
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {
         shifts = shiftslist[0]
-        start = shifts.startTime / 3600 + 1;
-          if (shifts.endTime % 3600 === 0){
-              end = shifts.endTime / 3600 + 1;
-          }
-         else  if (shifts.endTime % 3600 === 1800){
-              end = shifts.endTime / 3600 + 1;
-          }
-          else{
-              end = shifts.endTime / 3600 + 1;
-          }
+        start = shifts.startTime / 3600;
+        end = shifts.endTime / 3600;
 
+        if(end%1 == 0)
+          timeInEnd = 1;
+        else
+          timeInEnd = end%1;
 
-        middleLen = (end - start) - (start%1);
+        if(start%1 == 0)
+          timeInStart = 1;
+        else
+          timeInStart = 1-(start%1);
+
+        middleLen = (end - start) - timeInStart - timeInEnd;
       }
-//Formats hour variables
 
 
     // Iterates and creates the 24 hours. Return a list with 24 hours components
     for (var i = 0; i < 24; i++) {
       // Needs to be +2 because of the start of a shift can also be every whole hour, for example 16:00
+        if(start >= i && start < i+1 ){
 
-        if(start > i && start < i+2 ){
-            let shiftHours = [];
+          let shiftHours = [];
 
-            shiftHours[i] = <Hour type="start" key={i.toString()}
-                              keyName={i.toString()}
-                              time={shifts.startTime}
-                              endtime={shifts.endTime}/>;
-            //buffer += hours[i];
+          shiftHours[i] = <Hour type="start" key={i.toString()}
+                            keyName={format(this.props.date, 'YYYYDDD')}
+                            time={shifts.startTime}
+                            endtime={shifts.endTime}/>;
+          //buffer += hours[i];
             i +=1;
-            for (var m = 0; m < middleLen-1; m++){
-              shiftHours[i] = <Hour type="middle" key={i.toString()} keyName={i.toString()} time={start}/>
+            for (var m = 0; m <= middleLen-1; m++){
+              shiftHours[i] = <Hour type="middle" key={i.toString()}
+                                keyName={i.toString()}
+                                time={start}/>
                 //buffer += hours[i];
               i +=1;
             }
-          shiftHours[i] = <Hour type="end" key={i.toString()} keyName={i.toString()}/>
+          shiftHours[i] = <Hour type="end" key={i.toString()}
+                            keyName={format(this.props.date, 'YYYYDDD')}
+                            time={shifts.endTime}/>
             //buffer += hours[i]+"</div>";
             //let target = shifts.title;
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>

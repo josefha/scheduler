@@ -19,16 +19,18 @@ export default class CalanderPage extends Component {
       arrayOfSteps: []
     }
   }
-
+  /*
+    This doesn't work yet
+  */
   getJoyRideSteps(){
 
-    console.log(tools);
+    //console.log(tools);
 
     this.setState({
       arrayOfSteps:tools
     })
 
-    console.log("state har: " + this.state.arrayOfSteps);
+    //console.log("state har: " + this.state.arrayOfSteps);
   }
 
   togglePopUp = () => {

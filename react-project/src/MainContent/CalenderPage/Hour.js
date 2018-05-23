@@ -85,18 +85,19 @@ export default class Hour extends Component {
     a string as a name for the div called offSet
    */
   createStyleForShifts(type){
-    let innerShiftDiv = "innerShiftDiv" + this.props.keyName;
-    let offSet = "offSet" + this.props.keyName;
+    let innerShiftDiv = "inner" + type + this.props.keyName;
+    let offSet = "offSet" + type + this.props.keyName;
     let height;
 
-    let rest = this.props.time % 3600
+    let rest = (this.props.time/3600)%1 
     if (rest === 0) {
       height = 100;
     }else if(type==="end"){
       // The height of the div in % which should be green
-      height = (rest/3600) * 100
+      height = rest * 100
     }else if(type==="start"){
-      height = 100 -((rest/3600) * 100)
+      // this.props.time comes in another format for the start hour
+      height = 100 -rest * 100
     }
 
     const css = "".concat('.',
