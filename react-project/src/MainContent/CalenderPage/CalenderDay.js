@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './CalenderPage.css';
 import Hour from './Hour';
 import {Popover,OverlayTrigger} from 'react-bootstrap'
-
-
+import {calenderDays} from './Tools/strings.js'
 import format from 'date-fns/format'
 
 export default class CalenderDay extends Component {
@@ -19,8 +18,6 @@ export default class CalenderDay extends Component {
   /*
     Add event listener for resizing the window
   */
-
-
   componentDidMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
@@ -33,6 +30,11 @@ export default class CalenderDay extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
+
+  getStrings(type){
+    let data = calenderDays
+    return data[type];
+  }
 
     render(){
       let hoursElements = this.createHoursElements();
@@ -155,11 +157,11 @@ export default class CalenderDay extends Component {
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
-                <strong>Start: </strong> {this.displaytime(shifts.startTime)}
+                <strong>{this.getStrings("start")} </strong> {this.displaytime(shifts.startTime)}
                 <br/>
-                <strong>End: </strong>{this.displaytime(shifts.endTime)}
+                <strong>{this.getStrings("end")} </strong>{this.displaytime(shifts.endTime)}
                 <br/>
-                <strong>Description: </strong>
+                <strong>{this.getStrings("descr")}</strong>
                 {shifts.disc}
                 <br/>
                 <button className="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>

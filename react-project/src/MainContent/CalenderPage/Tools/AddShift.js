@@ -6,6 +6,7 @@ import JoyRide from 'react-joyride';
 import { bootstrapUtils } from 'react-bootstrap';
 import 'react-day-picker/lib/style.css'
 import './Tools.css';
+import {addShift} from './strings.js'
 
 export default class AddShift extends Component {
 
@@ -111,6 +112,10 @@ export default class AddShift extends Component {
     })
   }
 
+  getStrings(type){
+    let data = addShift;
+    return data[type];
+    }
 
   render() {
     return (
@@ -122,7 +127,7 @@ export default class AddShift extends Component {
             <Modal.Title>
               <div id="title">
                   <label htmlFor="titleInput" id="labelTitle">
-                    Title:
+                    {this.getStrings("title")}
                   </label>
                     <input
                       id="titleInput"
@@ -160,7 +165,7 @@ export default class AddShift extends Component {
 
               <div id="startTime">
                 <label htmlFor="startPicker" className="labelAbove">
-                  Start time:
+                  {this.getStrings("startTime")}
                 </label>
                   <TimePicker
                     className='startPicker'
@@ -177,7 +182,7 @@ export default class AddShift extends Component {
 
               <div id="description">
                 <label for="descInput" id="labelDesc">
-                  Description:
+                  {this.getStrings("description")}
                 </label>
                   <textarea
                     className = "grid-item"
@@ -191,7 +196,7 @@ export default class AddShift extends Component {
 
               <div id="endTime">
                 <label for="endPicker" className="labelAbove">
-                  End time:
+                  {this.getStrings("endTime")}
                 </label>
                     <TimePicker
                       className='endPicker'
@@ -206,16 +211,15 @@ export default class AddShift extends Component {
                 </div>
 
           <div id="submitDiv">
-            <Button id="submitBtn" type="submit" bsSize="large"> Submit </Button>
+            <Button id="submitBtn" type="submit" bsSize="large"> {this.getStrings("submit")} </Button>
           </div>
           </form>
 
         </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={this.handleDemo} id="helpBtn"> Help </Button>
-            <Button onClick={this.handleClick} id="CloseBtn"> Close </Button>
-
+            <Button onClick={this.handleDemo} id="helpBtn"> {this.getStrings("help")} </Button>
+            <Button onClick={this.handleClick} id="CloseBtn"> {this.getStrings("close")} </Button>
 
           </Modal.Footer>
 
