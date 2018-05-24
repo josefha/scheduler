@@ -30,3 +30,18 @@
     "settings" : "Settings"
 
   }
+
+  export const staff={
+    "0" : ["Alex", "Wahlandt", "+46707502466"],
+    "1" : ["Josef","Karakoca","+46707240529"],
+    "2" : ["Emil", "Svensson", "+4670832512"]
+
+  }
+
+  export const staffPage={
+    "registedEmployees" : "All registed employees \n",
+    "nr" : "#",
+    "firstName" : "FirstName",
+    "lastName" : "Last Name",
+    "phoneNr" : "Phonenumber"
+  }

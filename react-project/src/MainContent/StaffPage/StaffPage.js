@@ -1,12 +1,45 @@
 import React, { Component } from 'react';
 import { Table,tbody, } from 'react-bootstrap';
 import './StaffPage.css';
+import {staff,staffPage} from '../CalenderPage/Tools/strings.js'
 
 
 class StaffPage extends Component {
   constructor(props){
     super(props);
-    this.state = {staffList: [["alex","Wahlandt","+46707502466"],["Josef","Karakoca","+46707240529"]]}
+    this.state = {
+      staffList: []
+    }
+  }
+
+
+  getStrings(type){
+    let data = staffPage
+    return data[type];
+  }
+
+  getStaff(nr){
+    let x = [];
+    for (var i in staff[nr]){
+
+      x.push(staff[nr][i]);
+    }
+
+    let updatedStaffList = this.state.staffList;
+    updatedStaffList.push(x);
+
+    return updatedStaffList;
+  }
+
+  componentDidMount(){
+    let updatedStaffList;
+    for(var i = 0; i < Object.keys(staff).length; i++){
+      updatedStaffList = this.getStaff(i)
+    }
+    this.setState({
+      staffList : updatedStaffList
+    })
+
   }
 
   showStaff(){
@@ -31,17 +64,17 @@ class StaffPage extends Component {
   render() {
     return (
     <div className='StaffPage'>
-      All registed employees
+      {this.getStrings("registedEmployees")}
 
       <div className = "listOfWorkers">
 
         <Table striped bordered condensed hover>
           <thead>
             <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Phonenumber</th>
+              <th>{this.getStrings("nr")}</th>
+              <th>{this.getStrings("firstName")}</th>
+              <th>{this.getStrings("lastName")}</th>
+              <th>{this.getStrings("phoneNr")}</th>
             </tr>
           </thead>
         <tbody>
