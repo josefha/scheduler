@@ -3,6 +3,7 @@ import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
 import {Grid, Row, Col} from 'react-bootstrap';
 import Sound from 'react-sound';
+import AddShift from './Tools/AddShift';
 //import "node_modules/video-react/dist/video-react.css"; // import css
 
 
@@ -22,9 +23,20 @@ class CalenderPage extends Component {
     super(props);
     this.state = {
       mondayDateCurrentWeek: startOfWeek(new Date(),{weekStartsOn: 1}),
-      shifts: {}
+      shifts: {},
+      showPopUp : false,
     };
   }
+
+    /*
+    Handles the modal pop up to add/ a shift
+  */
+  togglePopUp = () => {
+    this.setState({
+      showPopUp : !this.state.showPopUp,
+    });
+  }
+
 
 // Adds a shift to this.state.shifts
 // Notis: ADD support for many shift on same day?
@@ -122,6 +134,7 @@ class CalenderPage extends Component {
                    nextClickEvent={this.changeToNextWeek}
                    currentClickEvent={this.changeToCurrentWeek}
                    currentdate={this.state.mondayDateCurrentWeek}
+                   handlePopUp={this.togglePopUp}
             />
           </Row>
         </Grid>
@@ -137,6 +150,15 @@ class CalenderPage extends Component {
                   <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
             </div>
           {sound}
+
+          {this.state.showPopUp ?
+            <AddShift
+              event={this.togglePopUp}
+              addShift={this.addShift}
+              shifts={this.state.shifts}
+            />
+            :null
+        }
 
         </div>
     );

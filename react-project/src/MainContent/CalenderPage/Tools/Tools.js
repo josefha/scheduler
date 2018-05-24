@@ -14,9 +14,7 @@ export default class CalanderPage extends Component {
   constructor(props){
     super(props);
     this.state={
-      showPopUp : false,
       runDemo : false,
-      modalIsOpen: false,
       arrayOfSteps: [
         {
           target: '#nextWeekBtn',
@@ -40,13 +38,11 @@ export default class CalanderPage extends Component {
     }
   }
 
-
   togglePopUp = () => {
-    this.setState({
-      showPopUp : !this.state.showPopUp,
-      modalIsOpen: true,
-    });
+    this.props.handlePopUp()
+
   }
+
 
   handlePreviousClick = () => {
     this.props.previousClickEvent()
@@ -104,14 +100,6 @@ export default class CalanderPage extends Component {
 
         </div>
 
-        {this.state.showPopUp ?
-          <AddShift
-            event={this.togglePopUp}
-            addShift={this.props.addShift}
-            shifts={this.props.shifts}
-          />
-          :null
-        }
       </div>
     );
   }

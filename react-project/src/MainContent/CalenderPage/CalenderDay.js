@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CalenderPage.css';
 import Hour from './Hour';
-import {Popover,OverlayTrigger} from 'react-bootstrap'
+import {Popover,OverlayTrigger,Button} from 'react-bootstrap'
 import {calenderDays} from './Tools/strings.js'
 import format from 'date-fns/format'
 
@@ -11,14 +11,15 @@ export default class CalenderDay extends Component {
     super();
     this.state={
       screenWidth: 0,
-      screenHeight: 0
+      screenHeight: 0,
     }
   }
+
 
   /*
     Add event listener for resizing the window
   */
-  componentDidMount(){
+  componentWillMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
 
@@ -180,7 +181,7 @@ export default class CalenderDay extends Component {
                 <br/>
                 <strong>{this.getStrings("descr")}</strong>
                 {shifts.desc}
-
+                <br/>
                 <button className="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
                 </Popover>;
