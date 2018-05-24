@@ -104,7 +104,7 @@ export default class CalenderDay extends Component {
     }
 
     createHoursElements() {
-      let shiftslist = this.props.shifts
+      let shiftslist = this.props.shifts;
       let hours = []
       let start = -1;
       let middleLen = -1;
@@ -179,8 +179,8 @@ export default class CalenderDay extends Component {
 
                 <br/>
                 <strong>{this.getStrings("descr")}</strong>
-                {shifts.disc}
-                <br/>
+                {shifts.desc}
+
                 <button className="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
                 </Popover>;

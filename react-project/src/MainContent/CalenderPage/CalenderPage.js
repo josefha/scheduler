@@ -39,7 +39,7 @@ class CalenderPage extends Component {
                 "day": shift.date.getDay(),
                 "startTime" : shift.startTime,
                 "endTime" : shift.endTime,
-                "disc" : shift.disc
+                "desc" : shift.desc
               }];
     this.setState({
           shifts : dict,
