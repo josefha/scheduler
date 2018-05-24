@@ -32,7 +32,7 @@ class Header extends Component {
         <Navbar.Collapse>
             <Nav pullRight>
               <NavItem eventKey={1} onClick={this.calenderClick}>
-               {this.getStrings("calender")}
+               {this.getStrings("calender")} 
               </NavItem>
 
               <NavItem eventKey={2} onClick={this.staffClick}>

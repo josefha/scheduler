@@ -28,17 +28,18 @@
 
   export const header={
     "companyName" : "Best Scheduling",
-    "calender:" : "Calender",
+    "calender" : "Calender",
     "employees" : "Employees",
     "profile" : "Profile",
-    "settings" : "Settings"
+    "settings" : "Settings",
+
 
   }
 
   export const staff={
     "0" : ["Alex", "Wahlandt", "+46707502466"],
     "1" : ["Josef","Karakoca","+46707240529"],
-    "2" : ["Emil", "Svensson", "+4670832512"]
+    "2" : ["Emil", "Svensson", "+46708325121"]
 
   }
 
