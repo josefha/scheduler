@@ -111,17 +111,6 @@ class CalenderPage extends Component {
     );
   }
 
-  //Button Events
-  deleteShift = (shift) => {
-    // let dict = this.state.shifts;
-    // let key = format(shift.date,'DD/MM/YYYY')
-    console.log("Deleting");
-    // delete dict[key]
-    //
-    // this.setState({
-    //       shifts : dict
-    // });
-  }
 
   changeToPreviousWeek = () => {
     let oldDate = this.state.mondayDateCurrentWeek
