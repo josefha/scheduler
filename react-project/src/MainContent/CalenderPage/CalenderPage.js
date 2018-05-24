@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Tools from './Tools/Tools';
 import CalenderDay from './CalenderDay';
 import {Grid, Row, Col} from 'react-bootstrap';
+import Sound from 'react-sound';
+//import "node_modules/video-react/dist/video-react.css"; // import css
+
 
 //Link to date lib:  https://date-fns.org/v1.29.0/docs/
 import subWeeks from 'date-fns/sub_weeks'
@@ -39,7 +42,8 @@ class CalenderPage extends Component {
                 "disc" : shift.disc
               }];
     this.setState({
-          shifts : dict
+          shifts : dict,
+        enableSound:false
       });
     };
 
@@ -50,7 +54,8 @@ class CalenderPage extends Component {
         delete dict[key];
 
         this.setState({
-            shifts : dict
+            shifts : dict,
+            enableSound:true
         });
     }
 
@@ -70,6 +75,30 @@ class CalenderPage extends Component {
     return format(date,'DD/MM/YYYY')
   }
 
+    toggleSound(props) {
+        const enabled = this.state.enableSound;
+        if (enabled) {
+            alert("Success");
+            return <div>
+                <Sound
+                url="delete.mp3"
+                playStatus={Sound.status.PLAYING}
+                playFromPosition={300 /* in milliseconds */}
+
+                onFinishedPlaying={this.setState({
+                        enableSound:false
+                    }
+                )}
+            />
+
+            </div>
+        }
+        else{
+            return "";
+        }
+
+    }
+
   render() {
     let shifts = this.state.shifts;
     let monday = this.state.mondayDateCurrentWeek
@@ -81,6 +110,7 @@ class CalenderPage extends Component {
     let sunday = addDays(monday, 6)
 
     let timeTable = this.createTimeTable();
+    let sound = this.toggleSound();
 
     return (
       <div id="mainPageWrapper">
@@ -106,6 +136,7 @@ class CalenderPage extends Component {
                   <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
                   <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
             </div>
+          {sound}
 
         </div>
     );
