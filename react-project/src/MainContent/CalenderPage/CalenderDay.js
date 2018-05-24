@@ -97,6 +97,11 @@ export default class CalenderDay extends Component {
 
     }
 
+    // Converts time in minutes
+     parseTime(s) {
+        var c = s.split(':');
+        return parseInt(c[0]) * 60 + parseInt(c[1]);
+    }
 
     createHoursElements() {
       let shiftslist = this.props.shifts
@@ -154,12 +159,24 @@ export default class CalenderDay extends Component {
                             time={shifts.endTime}/>
             //buffer += hours[i]+"</div>";
             //let target = shifts.title;
+            const start = this.displaytime(shifts.startTime);
+            const end = this.displaytime(shifts.endTime);
+            const  duration = this.parseTime(end) - this.parseTime(start) ;
+            // Calculate minutes and hours
+            let m = duration % 60;
+            let h = Math.floor(duration / 60);
+
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
-                <strong>{this.getStrings("start")} </strong> {this.displaytime(shifts.startTime)}
+                <strong>{this.getStrings("start")} </strong> {start}
                 <br/>
                 <strong>{this.getStrings("end")} </strong>{this.displaytime(shifts.endTime)}
+                <br/>
+                <strong>{this.getStrings("duration")} </strong>
+                {h}  {this.getStrings("hours")}
+                {m}  {this.getStrings("minutes")}
+
                 <br/>
                 <strong>{this.getStrings("descr")}</strong>
                 {shifts.disc}

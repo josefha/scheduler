@@ -19,7 +19,11 @@
   export const calenderDays={
     "start" : "Start: ",
     "end" : "End: ",
-    "descr" : "Description: "
+    "descr" : "Description: ",
+      "duration":"Duration: ",
+      "hours": "h ",
+      "minutes": "m "
+
   }
 
   export const header={
