@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {header} from '../MainContent/CalenderPage/Tools/strings.js'
 
 //import './Header.css'
 
@@ -14,32 +15,36 @@ class Header extends Component {
     this.props.event('calenderPage')
   }
 
+  getStrings(type){
+    let data = header;
+    return data[type];
+  }
 
   render() {
     return (
       <Navbar id="navBartest" collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            Scheduling System
+            {this.getStrings("companyName")}
           </Navbar.Brand>
         <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse>
             <Nav pullRight>
               <NavItem eventKey={1} onClick={this.calenderClick}>
-               Calander
+               {this.getStrings("calender")}
               </NavItem>
 
               <NavItem eventKey={2} onClick={this.staffClick}>
-               Employees
+               {this.getStrings("employees")}
               </NavItem>
 
               <NavItem eventKey={3}>
-                Profile
+                {this.getStrings("profile")}
               </NavItem>
 
               <NavItem eventKey={4}>
-                Settings
+                {this.getStrings("settings")}
               </NavItem>
 
             </Nav>

@@ -4,7 +4,8 @@ import AddShift from './AddShift';
 import JoyRide from 'react-joyride'
 import '../CalenderPage.css';
 import './Tools.css';
-import {tools} from './joyRideSteps.js'
+import {tools} from './strings.js'
+
 
 import format from 'date-fns/format'
 
@@ -16,22 +17,29 @@ export default class CalanderPage extends Component {
       showPopUp : false,
       runDemo : false,
       modalIsOpen: false,
-      arrayOfSteps: []
+      arrayOfSteps: [
+        {
+          target: '#nextWeekBtn',
+          content: 'Press to get to the next week',
+          disableBeacon: true
+        },
+        {
+          target: '#todayBtn',
+          content: 'Press to get to the current week'
+        },
+        {
+          target: '#lastWeekBtn',
+          content: 'Press to get to the previous week',
+          placement: 'left',
+        },
+        {
+          target: '#newShiftBtn',
+          content: 'Press to add a new shift'
+        },
+      ]
     }
   }
-  /*
-    This doesn't work yet
-  */
-  getJoyRideSteps(){
 
-    //console.log(tools);
-
-    this.setState({
-      arrayOfSteps:tools
-    })
-
-    //console.log("state har: " + this.state.arrayOfSteps);
-  }
 
   togglePopUp = () => {
     this.setState({
@@ -58,10 +66,11 @@ export default class CalanderPage extends Component {
     });
   }
 
-  componentDidMount(){
-    this.getJoyRideSteps();
-
+  getStrings(type){
+    let data = tools;
+    return data[type];
   }
+
   render() {
     let monthTitle = format(this.props.currentdate,'MMMM')
     let yearTitle = format(this.props.currentdate,'YYYY')
@@ -83,14 +92,14 @@ export default class CalanderPage extends Component {
           />
 
           <ButtonGroup className="weekButtons">
-            <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">Last</Button>
-            <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">Today</Button>
-            <Button bsSize="xsmall" onClick={this.handleNextClick} id="nextWeekBtn">Next</Button>
+            <Button bsSize="xsmall" onClick={this.handlePreviousClick} id="lastWeekBtn">{this.getStrings("lastBtn")}</Button>
+            <Button bsSize="xsmall" onClick={this.handleCurrentClick} id="todayBtn">{this.getStrings("todayBtn")}</Button>
+            <Button bsSize="xsmall" onClick={this.handleNextClick} id="nextWeekBtn">{this.getStrings("nextBtn")}</Button>
           </ButtonGroup>
 
           <ButtonGroup className="newShiftButtonGroup">
-            <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">New Shift</Button>
-            <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >Demo</Button>
+            <Button bsSize="xsmall" bsStyle="success" onClick={this.togglePopUp} id="newShiftBtn">{this.getStrings("newShiftBtn")}</Button>
+            <Button bsSize="xsmall" bsStyle ="info" onClick={this.startDemo} id="demoBtn" >{this.getStrings("demoBtn")}</Button>
           </ButtonGroup>
 
         </div>
