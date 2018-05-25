@@ -29,7 +29,7 @@
   }
 
   export const header={
-    "companyName" : "Best Scheduling",
+    "companyName" : "A fine Header",
     "calender" : "Calender",
     "employees" : "Employees",
     "profile" : "Profile",

@@ -39,7 +39,7 @@
 */
 
 #CloseBtn{
-  background-color: lightgrey;
+  background-color: #393a35;
 }
 
 #form-grid{
@@ -117,6 +117,10 @@
   z-index: 10;
 }
 
+#submitBtn{
+    color: white;
+    background-color: green;
+  }
 
 
 
@@ -156,11 +160,7 @@ Edits both end and start picker for time
     line-height: 0px;
   }
 
-  #submitBtn{
-    color: white;
-    background-color: green;
-    line-height: 3px;
-  }
+
 
   #description{
     align-self:stretch;
@@ -169,6 +169,10 @@ Edits both end and start picker for time
   #descInput{
     height: 135px;
     width: 118px;
+  }
+
+  #submitBtn{
+    line-height: 3px;
   }
 
 }
