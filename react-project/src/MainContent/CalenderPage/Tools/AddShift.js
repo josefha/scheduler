@@ -16,7 +16,7 @@ export default class AddShift extends Component {
       runDemo: false,
       shift : {
       "title": "",
-      "date": "",
+      "date": new Date(),
       "day" : 0,
       "startTime" : 0,
       "endTime" : 0,
@@ -115,6 +115,15 @@ export default class AddShift extends Component {
   getStrings(type){
     let data = addShift;
     return data[type];
+    }
+
+    componentDidMount(){
+      if (this.props.edit) {
+        this.setState({
+          shift: this.props.shiftToEdit
+        })
+      }
+
     }
 
   render() {

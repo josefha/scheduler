@@ -25,11 +25,13 @@ class CalenderPage extends Component {
       mondayDateCurrentWeek: startOfWeek(new Date(),{weekStartsOn: 1}),
       shifts: {},
       showPopUp : false,
+      edit : false,
+      shiftToEdit: undefined
     };
   }
 
-    /*
-    Handles the modal pop up to add/ a shift
+  /*
+    Handles the modal pop up to add a shift
   */
   togglePopUp = () => {
     this.setState({
@@ -38,8 +40,22 @@ class CalenderPage extends Component {
   }
 
 
+  /*
+    Extracts a shift from the dictionary shiftsand returns it
+  */
+  editShift = (date) => {
+      let dict = this.state.shifts;
+      let key = format(date,'DD/MM/YYYY');
+      console.log(dict[key]);
+      this.setState({
+        edit: true,
+        shiftToEdit: dict[key],
+        showPopUp:true,
+      })
+
+  }
+
 // Adds a shift to this.state.shifts
-// Notis: ADD support for many shift on same day?
   addShift = (shift) => {
     let dict = this.state.shifts;
     let key = format(shift.date,'DD/MM/YYYY')
@@ -141,13 +157,54 @@ class CalenderPage extends Component {
 
             <div id="calenderDays">
                 <div id="timeTableContainer">{timeTable}</div>
-                  <CalenderDay date={monday} shifts={shifts[this.dateToKey(monday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={tuesday} shifts={shifts[this.dateToKey(tuesday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={wednesday} shifts={shifts[this.dateToKey(wednesday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={thursday} shifts={shifts[this.dateToKey(thursday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={friday} shifts={shifts[this.dateToKey(friday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
-                  <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
+                  <CalenderDay
+                    date={monday}
+                    shifts={shifts[this.dateToKey(monday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={tuesday}
+                    shifts={shifts[this.dateToKey(tuesday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={wednesday}
+                    shifts={shifts[this.dateToKey(wednesday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={thursday}
+                    shifts={shifts[this.dateToKey(thursday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={friday}
+                    shifts={shifts[this.dateToKey(friday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={saturday}
+                    shifts={shifts[this.dateToKey(saturday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
+
+                  <CalenderDay
+                    date={sunday}
+                    shifts={shifts[this.dateToKey(sunday)]}
+                    onDelete = {this.handleDeleteShift.bind(this)}
+                    handleEdit={this.editShift}
+                  />
             </div>
           {sound}
 
@@ -156,6 +213,8 @@ class CalenderPage extends Component {
               event={this.togglePopUp}
               addShift={this.addShift}
               shifts={this.state.shifts}
+              shiftToEdit={this.state.shiftToEdit}
+              edit={this.state.edit}
             />
             :null
         }

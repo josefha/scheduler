@@ -37,6 +37,7 @@ export default class CalenderDay extends Component {
     return data[type];
   }
 
+
     render(){
       let hoursElements = this.createHoursElements();
       let date;
@@ -85,6 +86,12 @@ export default class CalenderDay extends Component {
     deleteShift(id,date){
         this.props.onDelete(id);
     }
+
+    editShift = (date) => (e) => {
+      this.props.handleEdit(date);
+
+    }
+
     displaytime(hour){
         if (hour % 3600 === 0) {
             return hour/3600 + ":00"
@@ -117,6 +124,7 @@ export default class CalenderDay extends Component {
 
       // Calculates the start, end and middle hours in the different shifts
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {
+        // Gets the first shift of the day
         shifts = shiftslist[0]
         start = shifts.startTime / 3600;
         end = shifts.endTime / 3600;
@@ -185,7 +193,10 @@ export default class CalenderDay extends Component {
                 <br/>
 
                 <div className="footer">
-                  <Button bsStyle="primary" id="editBtn">
+                  <Button bsStyle="primary"
+                    id="editBtn"
+                    onClick={this.editShift(shifts.date)}
+                    >
                     {this.getStrings("editBtn")}
                   </Button>
                   <Button bsStyle="danger"
@@ -200,9 +211,9 @@ export default class CalenderDay extends Component {
             hours[i] =
 
                 <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
-                <div id = {shifts.title}>
-                    { shiftHours }
-                </div>
+                  <div id = {shifts.title}>
+                      { shiftHours }
+                  </div>
                 </OverlayTrigger>
         }
       else{
