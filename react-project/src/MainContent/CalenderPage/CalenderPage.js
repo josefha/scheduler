@@ -90,7 +90,7 @@ class CalenderPage extends Component {
     toggleSound(props) {
         const enabled = this.state.enableSound;
         if (enabled) {
-            alert("Success");
+           // alert("Success");
             return <div>
                 <Sound
                 url="delete.mp3"
