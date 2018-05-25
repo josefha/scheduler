@@ -19,10 +19,6 @@
   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   }
 
-.Tools{
-
-}
-
 .CalenderDay{
   justify-self: stretch;
   align-self: stretch;
@@ -81,4 +77,25 @@
 }
 #end{
   border-top: 0px;
+}
+
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid LightGrey;
+  width: 100%;
+
+  margin-top: 10px;
+  padding-top:10px;
+}
+
+
+#deleteBtn{
+  margin-left: 5px;
+}
+
+#editBtn{
+  margin-right: 5px;
 }

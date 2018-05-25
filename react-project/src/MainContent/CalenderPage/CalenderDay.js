@@ -167,7 +167,8 @@ export default class CalenderDay extends Component {
             let m = duration % 60;
             let h = Math.floor(duration / 60);
 
-            const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
+            const popoverRight =
+            <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
                 <strong>{this.getStrings("start")} </strong> {start}
@@ -182,8 +183,18 @@ export default class CalenderDay extends Component {
                 <strong>{this.getStrings("descr")}</strong>
                 {shifts.desc}
                 <br/>
-                <button className="btn-danger" style={{margin: 'auto', display: 'block'}} id = "delete" onClick={this.deleteShift.bind(this,shifts)}>Delete</button>
 
+                <div className="footer">
+                  <Button bsStyle="primary" id="editBtn">
+                    {this.getStrings("editBtn")}
+                  </Button>
+                  <Button bsStyle="danger"
+                     id = "deleteBtn"
+                     onClick={this.deleteShift.bind(this,shifts)}
+                     >
+                     {this.getStrings("deleteBtn")}
+                   </Button>
+                 </div>
                 </Popover>;
 
             hours[i] =
