@@ -20,9 +20,11 @@
     "start" : "Start: ",
     "end" : "End: ",
     "descr" : "Description: ",
-      "duration":"Duration: ",
-      "hours": "h ",
-      "minutes": "m "
+    "duration":"Duration: ",
+    "hours": "h ",
+    "minutes": "m ",
+    "editBtn" : "Edit",
+    "deleteBtn" : "Delete"
 
   }
 
@@ -39,12 +41,13 @@
   export const staff={
     "0" : ["Alex", "Wahlandt", "+46707502466"],
     "1" : ["Josef","Karakoca","+46707240529"],
-    "2" : ["Emil", "Svensson", "+46708325121"]
+    "2" : ["Emil", "Svensson", "+46708325121"],
+    "3" : ["Iosif", "Kakalelis", "+46722452857"],
 
   }
 
   export const staffPage={
-    "registedEmployees" : "All registed employees \n",
+    "registedEmployees" : "All registerd employees \n",
     "nr" : "#",
     "firstName" : "FirstName",
     "lastName" : "Last Name",
