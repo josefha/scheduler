@@ -12,18 +12,34 @@ export default class CalenderDay extends Component {
     this.state={
       screenWidth: 0,
       screenHeight: 0,
-    }
+
+    };
+      // Evil sound loading
+      this.url = "http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg";
+      this.audio = new Audio(this.url);
+      this.audio.currentTime = 0;
+      this.togglePlay = this.togglePlay.bind(this);
   }
 
+    togglePlay() {
+        this.setState({ play: !this.state.play });
+        console.log(this.audio);
+        this.state.play ? this.audio.play() : this.audio.play();
 
-  /*
-    Add event listener for resizing the window
-  */
+    }
+
+
+
+    /*
+      Add event listener for resizing the window
+    */
   componentWillMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
 
   }
+
+
   /*
     Remove event listener
  */
@@ -51,6 +67,7 @@ export default class CalenderDay extends Component {
 
       return(
         <div className="CalenderDay"   id={this.props.title}>
+
             <div className = "WeekTitle">
             {date}
             </div>
@@ -84,6 +101,7 @@ export default class CalenderDay extends Component {
 
     deleteShift(id,date){
         this.props.onDelete(id);
+        this.togglePlay();
     }
     displaytime(hour){
         if (hour % 3600 === 0) {
