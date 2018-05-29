@@ -15,6 +15,7 @@ import startOfWeek from 'date-fns/start_of_week'
 import format from 'date-fns/format'
 import uuid  from 'uuid'
 
+
 import './CalenderPage.css';
 
 
@@ -106,7 +107,11 @@ class CalenderPage extends Component {
     toggleSound(props) {
         const enabled = this.state.enableSound;
         if (enabled) {
+<<<<<<< HEAD
           //  alert("Success");
+=======
+           // alert("Success");
+>>>>>>> 1974e2d1268163428e22a1713a5715fb4989cec4
             return <div>
                 <Sound
                 url="delete.mp3"
