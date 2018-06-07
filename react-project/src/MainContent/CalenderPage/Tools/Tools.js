@@ -38,30 +38,35 @@ export default class CalanderPage extends Component {
     }
   }
 
+  //handler for add shift popup
   togglePopUp = () => {
     this.props.handlePopUp()
 
   }
 
-
+  //handler for prevuis week btn
   handlePreviousClick = () => {
     this.props.previousClickEvent()
   }
 
+  //handler for next week btn
   handleNextClick = () => {
     this.props.nextClickEvent()
   }
 
+  //handler for current week btn
   handleCurrentClick = () => {
     this.props.currentClickEvent()
   }
 
+  //handler for demo btn (start the demo)
   startDemo= () => {
     this.setState({
       runDemo: !this.state.runDemo,
     });
   }
 
+  //returns correct string representation
   getStrings(type){
     let data = tools;
     return data[type];

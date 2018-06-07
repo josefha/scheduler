@@ -14,21 +14,18 @@ export default class CalenderDay extends Component {
       screenHeight: 0,
 
     };
-      // Evil sound loading
+      //Evil sound loading
       this.url = "http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg";
       this.audio = new Audio(this.url);
       this.audio.currentTime = 0;
       this.togglePlay = this.togglePlay.bind(this);
   }
 
+  //Audio handler for delete btn
     togglePlay() {
         this.setState({ play: !this.state.play });
-        console.log(this.audio);
         this.state.play ? this.audio.play() : this.audio.play();
-
     }
-
-
 
     /*
       Add event listener for resizing the window
@@ -36,7 +33,6 @@ export default class CalenderDay extends Component {
   componentWillMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
-
   }
 
 
@@ -99,10 +95,15 @@ export default class CalenderDay extends Component {
 
   }
 
+    //Deletes a shift from the state where
+    //thay are stored in calanderPage.js
     deleteShift(id,date){
         this.props.onDelete(id);
         this.togglePlay();
     }
+
+    //Converts an hour in seconds to string
+    //and rounds in to closest quarter
     displaytime(hour){
         if (hour % 3600 === 0) {
             return hour/3600 + ":00"
@@ -116,12 +117,14 @@ export default class CalenderDay extends Component {
 
     }
 
-    // Converts time in minutes
+    //Converts time in minutes
      parseTime(s) {
         var c = s.split(':');
         return parseInt(c[0]) * 60 + parseInt(c[1]);
     }
 
+    //Logic and creating of the hours html elements
+    //Shifts are inserted if they exist on that day
     createHoursElements() {
       let shiftslist = this.props.shifts;
       let hours = []
@@ -131,7 +134,6 @@ export default class CalenderDay extends Component {
       let shifts;
 
       let timeInStart, timeInEnd;
-      //et buffer = "";
 
       // Calculates the start, end and middle hours in the different shifts
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {

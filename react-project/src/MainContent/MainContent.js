@@ -6,7 +6,8 @@ import './MainContent.css';
 
 class MainContent extends Component {
 
-
+  //Checks what page should be shown
+  //and returns html for that page
   returnCurrentView(){
     if (this.props.view === "calenderPage"){
       return <CalenderPage/>
@@ -14,7 +15,6 @@ class MainContent extends Component {
       return <StaffPage/>
     }
   }
-
 
   render() {
     return (

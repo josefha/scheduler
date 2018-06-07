@@ -16,6 +16,8 @@ class Login extends Component {
         };
     }
 
+    //function that defines user logins
+    //Obs only for prototype purpose
     componentWillMount(){
         this.setState({users:[
                 {
@@ -39,6 +41,8 @@ class Login extends Component {
         })
 
     }
+
+    //checks if form is valid
     validateForm() {
         let users = this.state.users;
         console.log(users);
@@ -47,12 +51,14 @@ class Login extends Component {
 
     }
 
+    //handler for form change
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     };
 
+    //handler for login request
     handleSubmit = () => {
         let users = this.state.users;
         let found = false;
@@ -62,7 +68,6 @@ class Login extends Component {
 
        //OBS Changed this from .map to forEach because we don't
        //need to save the result // Josef
-       
         users.forEach(function (user) {
             if(user.email===email && user.password === password){
                 found = true;
