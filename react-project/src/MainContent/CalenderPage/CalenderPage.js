@@ -64,7 +64,7 @@ class CalenderPage extends Component {
 
         this.setState({
             shifts : dict,
-            enableSound:true
+            enableSound:true   // Enables sound after a delete
         });
     }
 
@@ -85,7 +85,7 @@ class CalenderPage extends Component {
     return format(date,'DD/MM/YYYY')
   }
 
-  //turn sounds on and of depending on props
+  //turn sounds on and of depending on props.. Sound doesn't load by using this custom component..Another method is used (see CalendarDay.js)
   toggleSound(props) {
       const enabled = this.state.enableSound;
       if (enabled) {
@@ -143,7 +143,7 @@ class CalenderPage extends Component {
                   <CalenderDay date={saturday} shifts={shifts[this.dateToKey(saturday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
                   <CalenderDay date={sunday} shifts={shifts[this.dateToKey(sunday)]} onDelete = {this.handleDeleteShift.bind(this)}/>
             </div>
-          {sound}
+          {sound} // Sound component,
 
           {this.state.showPopUp ?
             <AddShift

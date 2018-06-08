@@ -8,7 +8,7 @@ import uuid  from 'uuid'
 class Login extends Component {
     constructor(props) {
         super(props);
-
+            // Creates empty login state variables
         this.state = {
             email: "",
             password: "",
@@ -18,6 +18,7 @@ class Login extends Component {
 
     //function that defines user logins
     //Obs only for prototype purpose
+    // Create demo users
     componentWillMount(){
         this.setState({users:[
                 {
@@ -77,7 +78,7 @@ class Login extends Component {
            if(found===false){
                alert("Wrong email or password")
            }
-            this.props.event(found, this.state.email);
+            this.props.event(found, this.state.email); // Uppdates App.js with the result
     };
 
     render() {
@@ -106,7 +107,7 @@ class Login extends Component {
                     <Button
                         block
                         bsSize="large"
-                        disabled={!this.validateForm()}
+                        disabled={!this.validateForm()} //Validate form first to enable button
                         type="submit"
                     >
                         Login

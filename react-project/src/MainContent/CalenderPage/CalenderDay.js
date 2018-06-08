@@ -14,7 +14,7 @@ export default class CalenderDay extends Component {
       screenHeight: 0,
 
     };
-      //Evil sound loading
+      //Evil sound loading.. This creepy sound is played when someone deletes a shift
       this.url = "http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg";
       this.audio = new Audio(this.url);
       this.audio.currentTime = 0;
@@ -186,7 +186,7 @@ export default class CalenderDay extends Component {
             // Calculate minutes and hours
             let m = duration % 60;
             let h = Math.floor(duration / 60);
-
+            // Creates an info area component by using bootstrap's popover
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
 
 
@@ -209,6 +209,7 @@ export default class CalenderDay extends Component {
             hours[i] =
 
                 <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
+                    // Creates a div, area reserved for manipulating and handling a shift.
                 <div id = {shifts.title}>
                     { shiftHours }
                 </div>
