@@ -101,25 +101,6 @@ class CalenderPage extends Component {
     return format(date,'DD/MM/YYYY')
   }
 
-<<<<<<< HEAD
-    toggleSound(props) {
-        const enabled = this.state.enableSound;
-        if (enabled) {
-          //  alert("Success");
-            return <div>
-                <Sound
-                url="delete.mp3"
-                playStatus={Sound.status.PLAYING}
-                playFromPosition={300 /* in milliseconds */}
-
-                onFinishedPlaying={this.setState({
-                        enableSound:false
-                    }
-                )}
-            />
-
-            </div>
-=======
   //turn sounds on and of depending on props.. Sound doesn't load by using this custom component..Another method is used (see CalendarDay.js)
   toggleSound(props) {
       const enabled = this.state.enableSound;
@@ -134,7 +115,6 @@ class CalenderPage extends Component {
               }
               )}/>
           </div>
->>>>>>> a1164d802568f1b44089823880139fd57f457f06
         }
         else{
             return "";
@@ -245,7 +225,7 @@ class CalenderPage extends Component {
     })
   }
 
-//changes to next week 
+//changes to next week
   changeToNextWeek = () => {
     let oldDate = this.state.mondayDateCurrentWeek
     this.setState({

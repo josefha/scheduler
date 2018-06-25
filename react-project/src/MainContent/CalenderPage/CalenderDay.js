@@ -103,16 +103,11 @@ export default class CalenderDay extends Component {
         this.togglePlay();
     }
 
-<<<<<<< HEAD
     editShift = (date) => (e) => {
       this.props.handleEdit(date);
 
     }
 
-=======
-    //Converts an hour in seconds to string
-    //and rounds in to closest quarter
->>>>>>> a1164d802568f1b44089823880139fd57f457f06
     displaytime(hour){
         if (hour % 3600 === 0) {
             return hour/3600 + ":00"
@@ -196,14 +191,8 @@ export default class CalenderDay extends Component {
             // Calculate minutes and hours
             let m = duration % 60;
             let h = Math.floor(duration / 60);
-<<<<<<< HEAD
-
-            const popoverRight =
-            <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
-=======
             // Creates an info area component by using bootstrap's popover
             const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
->>>>>>> a1164d802568f1b44089823880139fd57f457f06
 
 
                 <strong>{this.getStrings("start")} </strong> {start}
@@ -238,16 +227,10 @@ export default class CalenderDay extends Component {
             hours[i] =
 
                 <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
-<<<<<<< HEAD
-                  <div id = {shifts.title}>
-                      { shiftHours }
-                  </div>
-=======
                     // Creates a div, area reserved for manipulating and handling a shift.
                 <div id = {shifts.title}>
                     { shiftHours }
                 </div>
->>>>>>> a1164d802568f1b44089823880139fd57f457f06
                 </OverlayTrigger>
         }
       else{
