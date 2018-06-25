@@ -57,12 +57,13 @@ export default class AddShift extends Component {
 
   }
   }
+
   // Close the popup
   handleClick = () => {
     this.props.event();
   }
 
-// This function adds the json object to the array shifts
+  // This function adds the json object to the array shifts
   handleSubmit = (e) => {
     this.props.addShift(this.state.shift);
     e.preventDefault();
@@ -106,12 +107,14 @@ export default class AddShift extends Component {
     })
   }
 
+  //handler for demo btn
   handleDemo = () => {
     this.setState({
       runDemo: !this.state.runDemo,
     })
   }
 
+  //returns correct string from stated in string.js
   getStrings(type){
     let data = addShift;
     return data[type];

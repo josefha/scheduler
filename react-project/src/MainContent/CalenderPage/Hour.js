@@ -23,6 +23,8 @@ export default class Hour extends Component {
     );
   }
 
+  //Generates the html for first hour in a shift which
+  //hold information about start and the end time
   createStartHour(){
   let startTimeText = this.displaytime(this.props.time);
   let endTimeText = this.displaytime(this.props.endtime);
@@ -45,6 +47,9 @@ export default class Hour extends Component {
   )
   }
 
+  //generates html for the the last hour of
+  //a shift which can be different size depending
+  //when it ends within the hour
   createEndHour(){
     const css = this.createStyleForShifts("end")[0];
     let innerShiftDiv = this.createStyleForShifts("end")[1]
@@ -89,7 +94,7 @@ export default class Hour extends Component {
     let offSet = "offSet" + type + this.props.keyName;
     let height;
 
-    let rest = (this.props.time/3600)%1 
+    let rest = (this.props.time/3600)%1
     if (rest === 0) {
       height = 100;
     }else if(type==="end"){

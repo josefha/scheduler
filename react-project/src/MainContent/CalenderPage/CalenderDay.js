@@ -14,21 +14,18 @@ export default class CalenderDay extends Component {
       screenHeight: 0,
 
     };
-      // Evil sound loading
+      //Evil sound loading.. This creepy sound is played when someone deletes a shift
       this.url = "http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg";
       this.audio = new Audio(this.url);
       this.audio.currentTime = 0;
       this.togglePlay = this.togglePlay.bind(this);
   }
 
+  //Audio handler for delete btn
     togglePlay() {
         this.setState({ play: !this.state.play });
-        console.log(this.audio);
         this.state.play ? this.audio.play() : this.audio.play();
-
     }
-
-
 
     /*
       Add event listener for resizing the window
@@ -36,7 +33,6 @@ export default class CalenderDay extends Component {
   componentWillMount(){
     this.setViewPort();
     window.addEventListener("resize",this.setViewPort);
-
   }
 
 
@@ -100,16 +96,23 @@ export default class CalenderDay extends Component {
 
   }
 
+    //Deletes a shift from the state where
+    //thay are stored in calanderPage.js
     deleteShift(id,date){
         this.props.onDelete(id);
         this.togglePlay();
     }
 
+<<<<<<< HEAD
     editShift = (date) => (e) => {
       this.props.handleEdit(date);
 
     }
 
+=======
+    //Converts an hour in seconds to string
+    //and rounds in to closest quarter
+>>>>>>> a1164d802568f1b44089823880139fd57f457f06
     displaytime(hour){
         if (hour % 3600 === 0) {
             return hour/3600 + ":00"
@@ -123,12 +126,14 @@ export default class CalenderDay extends Component {
 
     }
 
-    // Converts time in minutes
+    //Converts time in minutes
      parseTime(s) {
         var c = s.split(':');
         return parseInt(c[0]) * 60 + parseInt(c[1]);
     }
 
+    //Logic and creating of the hours html elements
+    //Shifts are inserted if they exist on that day
     createHoursElements() {
       let shiftslist = this.props.shifts;
       let hours = []
@@ -138,7 +143,6 @@ export default class CalenderDay extends Component {
       let shifts;
 
       let timeInStart, timeInEnd;
-      //et buffer = "";
 
       // Calculates the start, end and middle hours in the different shifts
       if (shiftslist !== undefined && shiftslist.length !== 0 ) {
@@ -192,9 +196,14 @@ export default class CalenderDay extends Component {
             // Calculate minutes and hours
             let m = duration % 60;
             let h = Math.floor(duration / 60);
+<<<<<<< HEAD
 
             const popoverRight =
             <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
+=======
+            // Creates an info area component by using bootstrap's popover
+            const popoverRight = <Popover id="popover-positioned-right" title={shifts.title} style={{opacity: 12}}>
+>>>>>>> a1164d802568f1b44089823880139fd57f457f06
 
 
                 <strong>{this.getStrings("start")} </strong> {start}
@@ -229,9 +238,16 @@ export default class CalenderDay extends Component {
             hours[i] =
 
                 <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
+<<<<<<< HEAD
                   <div id = {shifts.title}>
                       { shiftHours }
                   </div>
+=======
+                    // Creates a div, area reserved for manipulating and handling a shift.
+                <div id = {shifts.title}>
+                    { shiftHours }
+                </div>
+>>>>>>> a1164d802568f1b44089823880139fd57f457f06
                 </OverlayTrigger>
         }
       else{

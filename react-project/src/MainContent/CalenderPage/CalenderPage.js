@@ -4,8 +4,7 @@ import CalenderDay from './CalenderDay';
 import {Grid, Row, Col} from 'react-bootstrap';
 import Sound from 'react-sound';
 import AddShift from './Tools/AddShift';
-//import "node_modules/video-react/dist/video-react.css"; // import css
-
+import './CalenderPage.css';
 
 //Link to date lib:  https://date-fns.org/v1.29.0/docs/
 import subWeeks from 'date-fns/sub_weeks'
@@ -14,10 +13,6 @@ import addDays from 'date-fns/add_days'
 import startOfWeek from 'date-fns/start_of_week'
 import format from 'date-fns/format'
 import uuid  from 'uuid'
-
-
-import './CalenderPage.css';
-
 
 class CalenderPage extends Component {
   constructor(props){
@@ -76,21 +71,21 @@ class CalenderPage extends Component {
       });
     };
 
+    //handler for delete btn
+    //removes a shift from state: 'shifts'
     handleDeleteShift(shift) {
-
         let dict = this.state.shifts;
         let key = format(shift.date,'DD/MM/YYYY');
         delete dict[key];
 
         this.setState({
             shifts : dict,
-            enableSound:true
+            enableSound:true   // Enables sound after a delete
         });
     }
 
-
-
-
+    //Generates html text for clock times
+    //00:00 -> 24:00
     createTimeTable(){
       let arrayOfDivs = [];
       arrayOfDivs[0] = <div key="emptyTime" className="timeTable" id="emptyHour"></div>
@@ -100,10 +95,13 @@ class CalenderPage extends Component {
       return arrayOfDivs;
     }
 
+  //change a date to key-format used in
+  //the hash map shifts in this.state
   dateToKey(date){
     return format(date,'DD/MM/YYYY')
   }
 
+<<<<<<< HEAD
     toggleSound(props) {
         const enabled = this.state.enableSound;
         if (enabled) {
@@ -121,11 +119,26 @@ class CalenderPage extends Component {
             />
 
             </div>
+=======
+  //turn sounds on and of depending on props.. Sound doesn't load by using this custom component..Another method is used (see CalendarDay.js)
+  toggleSound(props) {
+      const enabled = this.state.enableSound;
+      if (enabled) {
+          return <div>
+              <Sound
+              url="delete.mp3"
+              playStatus={Sound.status.PLAYING}
+              playFromPosition={300 /* in milliseconds */}
+              onFinishedPlaying={this.setState({
+                      enableSound:false
+              }
+              )}/>
+          </div>
+>>>>>>> a1164d802568f1b44089823880139fd57f457f06
         }
         else{
             return "";
         }
-
     }
 
   render() {
@@ -207,7 +220,7 @@ class CalenderPage extends Component {
                     handleEdit={this.editShift}
                   />
             </div>
-          {sound}
+          {sound} // Sound component,
 
           {this.state.showPopUp ?
             <AddShift
@@ -224,7 +237,7 @@ class CalenderPage extends Component {
     );
   }
 
-
+//change to previous week
   changeToPreviousWeek = () => {
     let oldDate = this.state.mondayDateCurrentWeek
     this.setState({
@@ -232,6 +245,7 @@ class CalenderPage extends Component {
     })
   }
 
+//changes to next week 
   changeToNextWeek = () => {
     let oldDate = this.state.mondayDateCurrentWeek
     this.setState({
@@ -239,6 +253,7 @@ class CalenderPage extends Component {
     })
   }
 
+//changes to current week
   changeToCurrentWeek = () => {
     this.setState({
       mondayDateCurrentWeek: startOfWeek(new Date(),{weekStartsOn: 1})

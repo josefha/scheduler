@@ -8,7 +8,7 @@ import uuid  from 'uuid'
 class Login extends Component {
     constructor(props) {
         super(props);
-
+            // Creates empty login state variables
         this.state = {
             email: "",
             password: "",
@@ -16,6 +16,9 @@ class Login extends Component {
         };
     }
 
+    //function that defines user logins
+    //Obs only for prototype purpose
+    // Create demo users
     componentWillMount(){
         this.setState({users:[
                 {
@@ -39,6 +42,8 @@ class Login extends Component {
         })
 
     }
+
+    //checks if form is valid
     validateForm() {
         let users = this.state.users;
         console.log(users);
@@ -47,12 +52,14 @@ class Login extends Component {
 
     }
 
+    //handler for form change
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     };
 
+    //handler for login request
     handleSubmit = () => {
         let users = this.state.users;
         let found = false;
@@ -62,7 +69,6 @@ class Login extends Component {
 
        //OBS Changed this from .map to forEach because we don't
        //need to save the result // Josef
-       
         users.forEach(function (user) {
             if(user.email===email && user.password === password){
                 found = true;
@@ -72,7 +78,7 @@ class Login extends Component {
            if(found===false){
                alert("Wrong email or password")
            }
-            this.props.event(found, this.state.email);
+            this.props.event(found, this.state.email); // Uppdates App.js with the result
     };
 
     render() {
@@ -101,7 +107,7 @@ class Login extends Component {
                     <Button
                         block
                         bsSize="large"
-                        disabled={!this.validateForm()}
+                        disabled={!this.validateForm()} //Validate form first to enable button
                         type="submit"
                     >
                         Login
