@@ -224,16 +224,14 @@ export default class CalenderDay extends Component {
                  </div>
                 </Popover>;
 
-            hours[i] =
+            hours[i] =  <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
+                          {/* Creates a div, area reserved for manipulating and handling a shift.*/}
+                          <div id = {shifts.title}>
+                            { shiftHours }
+                          </div>
+                        </OverlayTrigger>
 
-                <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
-                    // Creates a div, area reserved for manipulating and handling a shift.
-                <div id = {shifts.title}>
-                    { shiftHours }
-                </div>
-                </OverlayTrigger>
-        }
-      else{
+      }else{
        hours[i] = <Hour type="empty" key={i.toString()}  keyName={i.toString()} time={start}/>
       }
     }
