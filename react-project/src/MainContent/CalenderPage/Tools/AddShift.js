@@ -114,6 +114,7 @@ export default class AddShift extends Component {
     })
   }
 
+
   //returns correct string from stated in string.js
   getStrings(type){
     let data = addShift;

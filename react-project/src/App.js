@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     // Change the authorized to true to skip the login page
     this.state = {view: "calenderPage",
-    authorized:false,
+    authorized:true,
         email:""
     }
   }

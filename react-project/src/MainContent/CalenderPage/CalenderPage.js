@@ -200,7 +200,7 @@ class CalenderPage extends Component {
                     handleEdit={this.editShift}
                   />
             </div>
-          {sound} // Sound component,
+          {sound}
 
           {this.state.showPopUp ?
             <AddShift
