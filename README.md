@@ -1,2 +1,2 @@
-# reactproject
-Project for User Interface Programming course using react
+# react project
+Protype for a scheduling software for midium sized businesses. 
