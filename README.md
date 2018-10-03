@@ -1,2 +1,2 @@
 # react project
-Protype for a scheduling software for midium sized businesses. 
+Protype for a scheduling software for medium sized businesses. 
